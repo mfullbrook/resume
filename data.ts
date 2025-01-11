@@ -2,7 +2,7 @@ export type Profile = {
   name: string
   title: string
   avatarPath: string
-  introduction: string
+  summary: string
   emailBase64: string
   githubHandle: string
   linkedinHandle: string
@@ -18,7 +18,7 @@ export type Experience = {
   location?: string
   dates?: string
   skills?: string[]
-  achievements?: string[]
+  achievements?: (string | { item: string; subitems: string[] })[]
 }
 
 export type Education = {
@@ -34,9 +34,9 @@ export type AboutMe = {
 
 export const profile: Profile = {
   name: 'Mark Fullbrook',
-  title: 'Generative AI Engineering Manager',
+  title: 'Generative AI Engineering Leader',
   avatarPath: '/images/profile-selfie-london2.jpeg',
-  introduction: 'blah',
+  summary: 'A Generative AI Engineering Leader with 20 years of diverse software experience, I lead by example, balancing a people-first mindset with hands-on delivery. My portfolio includes challenging projects in highly regulated environments, reflecting my commitment to code craft, technical curiosity, and the creation of scalable, innovative AI solutions that engage both users and stakeholders.',
   emailBase64: 'bWFya0BmdWxsYnJvb2subWU=',
   githubHandle: 'mfullbrook',
   linkedinHandle: 'markcfullbrook',
@@ -50,33 +50,43 @@ export const overview: Overview = [
   'Contributed to open-source projects with 1000+ GitHub stars',
 ]
 
-export const experiences = [
+export const experiences: Experience[] = [
   {
     title: 'Generative AI Engineering Manager',
     company: 'Citi Innovation Labs',
     location: 'London',
-    dates: '2024 - Present',
-    skills: ['Todo', 'Todo', 'Todo', 'Todo', 'Todo'],
+    dates: 'Jan 2024 - Present',
+    skills: ['Python', 'Postgres', 'LlamaIndex', 'Next.js', 'React', 'TypeScript', 'MongoDB', 'Kubernetes', 'Helm'],
     achievements: [
-      'Leading multi-discipline teams to design and develop Generative AI solutions to a variety of solutions for different lines of business.',
-      'Delivered to production a multi-tenanted Generative AI product that enables the drafting of structured documents, leveraging RAG from structured and unstructured data.',
-      'TODO',
+      'Leading engineering of solution teams globally for the Innovation Labs. Scaling from solo to a team of over twenty within a year.',
+      'Delivered to production one of Citi\'s first Generative AI products, enabling the drafting of structured documents, leveraging RAG from structured and unstructured data.',
+      'Designed and architected a multi-tenanted producted that is designed for scale, re-use and flexibility.',
+      'Accountable for a variety of uses cases for different business verticals; leveraging Generative AI to solve content creation, entity classification, data extraction, and quality assessment problems.',
     ],
   },
   {
     title: 'SVP Engineering Lead',
     company: 'Citi Innovation Labs',
     location: 'London',
-    dates: '2021 - 2023',
-    skills: ['Todo', 'Todo', 'Todo', 'Todo', 'Todo'],
-    achievements: ['Promoted from VP to SVP in January 2023', 'TODO', 'TODO'],
+    dates: 'Apr 2021 - Dec 2023',
+    skills: ['Kotlin', 'Camunda', 'gRPC', 'Oracle', 'RabbitMQ', 'Kubernetes', 'Nest.js', 'Typescript', 'React', 'Ant Design'],
+    achievements: [
+      {
+        item: 'Led a global development team of 12 developers to build, from inception to production, an AI enabled data remediation workflow platform. The software enabled the remediation of thousands of agreements and was vital in a closing a consent order deliverable.', 
+        subitems: [
+          'Architected and implement a platfrom that can ececute any BPMN defined workflow, using a combination of Camunda, gRPC, and RabbitMQ.',
+          'Enterprise level microservices built with Kotlin, Ktor and Spring Boot deployed to OpenShift (Kubernetes).'
+        ]
+      },
+      'Promoted from VP to SVP in January 2023',
+    ],
   },
   {
     title: 'Director - Technology and Finance',
     company: 'Universal Packing Specialists',
     location: 'London',
     dates: 'Apr 2016 - Mar 2021',
-    skills: ['Todo', 'Todo', 'Todo', 'Todo', 'Todo'],
+    skills: ['React Native', 'Laravel', 'Vue.js', 'TypeScript', 'PHP', 'AWS Lambda', 'S3', 'CloudFront', 'Docker', 'CircleCI'],
     overview:
       'Joined the family business, a mature 65 employee export packing and crate manufacturing company, to lead the introduction of modern technology throughout the business. Universal Packing is the foremost producer of packing crates in London, operating 24/5 with 12-hour turnaround from order to delivery of bespoke crates. Responsibilities included finance, legal and HR with primary focus on technology and system development.',
     achievements: [
@@ -91,7 +101,7 @@ export const experiences = [
     company: 'BloombergNEF',
     location: 'London',
     dates: 'Oct 2014 - Mar 2016',
-    skills: ['Todo', 'Todo', 'Todo', 'Todo', 'Todo'],
+    skills: ['Swift', 'PHP', 'Angular', 'Scrum', 'Lean Methodology'],
     achievements: [
       'Fostered the early adoption of agile product development, becoming London R&D’s standard bearing team for agile.',
       'Spearheaded the creation of native Android and iOS apps. Selected and partnered with an external development company to rapidly build a first iteration whilst up-skilling existing team members to create a native mobile development capability within our team.',
@@ -105,7 +115,7 @@ export const experiences = [
     company: 'BloombergNEF',
     location: 'London',
     dates: 'Aug 2012 - Oct 2014',
-    skills: ['Todo', 'Todo', 'Todo', 'Todo', 'Todo'],
+    skills: ['PHP', 'Symfony', 'MySQL', 'JavaScript', 'Angular', 'Cordova', 'Jenkins'],
     achievements: [
       'Developed MVP hybrid (Cordova) mobile application and supporting APIs for consuming digital rights managed content offline.',
       'Replaced legacy code with APIs to deliver content suitable for web and Bloomberg terminal.',
@@ -116,13 +126,16 @@ export const experiences = [
   {
     title: 'Full Stack Developer',
     company: 'Brickhunter Ltd',
+    location: 'South Yorkshire',
+    dates: '2008 - 2010',
+    skills: ['PHP', 'Symfony', 'jQuery', 'JavaScript', 'HTML', 'CSS'],
     achievements: [
       'Developed a nationwide marketplace website for matching facing brick stockists to customers. Key features: e-commerce, HGV delivery pricing and SEO. Back office application: basic CRM and order fulfilment.',
     ],
   },
   {
     title: 'Career Notes',
-    location: 'Various, UK',
+    location: 'UK',
     achievements: [
       'Team Leader (2008)',
       'Senior Web Developer (2006 - 2007)',
@@ -142,23 +155,23 @@ export const educations = [
 
 export const aboutMe: AboutMe[] = [
   {
-    headline: 'I want to work for a company that...',
+    headline: 'I want to work for a company...',
     content:
-      'Values innovation, promotes work-life balance, and encourages continuous learning. I thrive in environments that embrace new technologies and foster collaboration.',
+      'that has challenging problems to solve with Generative AI; has an appetite to keep up with the pace of innovation and embraces new technologies; promotes work-life balance; has a strong culture that I can connect with and be proud to work for.',
   },
   {
     headline: "I'm interested in roles...",
     content:
-      'Strong technical skills in full-stack development, including frontend and backend technologies. Proficient in JavaScript, TypeScript, React, Node.js, and related tools and frameworks. Experienced in building scalable and maintainable applications using modern web technologies.',
+      'that are leadership roles with a strong focus on Generative AI. I\'ve always enjoyed my work, and right now the it\'s a privilege to be working with the hottest technology.  I want to keep doing the same and remain hands on.'
   },
   {
     headline: 'Outside of work I...',
     content:
-      'Passionate about crafting user-centric, responsive, and high-performance web applications. Committed to staying current with industry trends and best practices. A team player with a proven track record of delivering innovative solutions.',
+      'prioritise spending time with my family: having mini adventures in the UK, supporting my kids at their sports, or enjoying a home cooked meal and a good movie.  My wife and I have a shared love of travel and always have at least one big adventure planned.',
   },
   {
     headline: "I'm currently building...",
     content:
-      'I enjoy playing video games, exploring new restaurants, and engaging in outdoor activities. I also love to learn new languages and try new cuisines.',
+      'an agentic executive assistant using LangGraph, interacted via a ReactNative app.   I\'m always learning and building something when I can grab some spare time on the commute or in the evenings.',
   },
 ]

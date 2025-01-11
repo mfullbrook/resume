@@ -35,7 +35,7 @@ export default function Resume() {
             <h1 className="text-4xl font-bold md:text-5xl">{profile.name}</h1>
             <h2 className="text-2xl text-muted-foreground md:text-3xl">{profile.title}</h2>
 
-            <p className="max-w-2xl text-lg leading-relaxed">{profile.introduction}</p>
+            <p className="max-w-2xl text-lg leading-relaxed">{profile.summary}</p>
 
             <div className="flex flex-wrap gap-4 text-muted-foreground">
               <MailTo
@@ -68,7 +68,7 @@ export default function Resume() {
         {/* Overview Section */}
         <section>
           <h3 className="mb-4 text-2xl font-semibold">Overview</h3>
-          <ul className="list-inside list-disc space-y-2 text-muted-foreground">
+          <ul className="list-outside list-disc space-y-2 pl-6 text-muted-foreground">
             {overview.map((line) => (
               <li key={line}>{line}</li>
             ))}
