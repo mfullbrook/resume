@@ -1,7 +1,6 @@
 import { MapPin } from 'lucide-react';
 import { TechnicalSkill } from './TechnicalSkill';
 import type { Experience } from '@/data';
-import { warnOptionHasBeenMovedOutOfExperimental } from 'next/dist/server/config';
 
 interface WorkExperienceProps {
   experience: Experience;

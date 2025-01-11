@@ -6,7 +6,6 @@ import {getImageProps} from 'next/image'
 import { MailTo } from '@/components/MailTo';
 
 import { experiences, profile, overview, educations, aboutMe } from '@/data'
-import NextAvatar from '@/components/NextAvatar';
 
 export default function Resume() {
   const avatarProps = getImageProps({ width: 128, height: 128, src: profile.avatarPath, alt: profile.name });
