@@ -3,14 +3,14 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { ThemeToggle } from '@/components/ThemeToggle'
-import { profile } from '@/data'
+import { header } from '@/data'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: `${profile.name} - Professional Resume`,
-  description: `Professional resume of ${profile.name}, ${profile.title} based in ${profile.location}`,
-  authors: [{ name: profile.name }],
+  title: `${header.name} - Professional Resume`,
+  description: `Professional resume of ${header.name}, ${header.title} based in ${header.location}`,
+  authors: [{ name: header.name }],
   keywords: [
     'resume',
     'curriculum vitae',

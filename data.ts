@@ -1,4 +1,4 @@
-export type Profile = {
+export type Header = {
   name: string
   title: string
   avatarPath: string
@@ -9,7 +9,7 @@ export type Profile = {
   location: string
 }
 
-export type Overview = string[]
+export type Profile = { heading: string; content: string }[]
 
 export type Experience = {
   title: string
@@ -32,7 +32,7 @@ export type AboutMe = {
   content: string
 }
 
-export const profile: Profile = {
+export const header: Header = {
   name: 'Mark Fullbrook',
   title: 'Generative AI Engineering Leader',
   avatarPath: '/images/profile-selfie-london2.jpeg',
@@ -43,11 +43,27 @@ export const profile: Profile = {
   location: 'London, UK',
 }
 
-export const overview: Overview = [
-  'Led development of a microservices architecture serving 1M+ daily active users',
-  'Managed and mentored a team of 5 software engineers, improving team velocity by 40%',
-  'Implemented CI/CD pipelines reducing deployment time by 60%',
-  'Contributed to open-source projects with 1000+ GitHub stars',
+export const profile: Profile = [
+  {
+    heading: 'AI Advocate',
+    content: 'A passionate advocate for leveraging AI as a core element of business strategy. Proven track record of delivering cutting-edge AI solutions - led projects at Citibank that have transformed workflows. Now leading a portfolio of AI enabled solutions across diverse business lines.'
+  },
+  { 
+    heading: 'Architectural Excellence',
+    content: 'As a seasoned software architect, I’ve designed and delivered complex systems—from bespoke ERP solutions, e-commerce, mobile apps, and now generative AI products. I excel at evaluating technologies to make informed choices that align with product and business goals.'
+  },
+  {
+    heading: 'Hands-On Full Stack Technologist',
+    content: 'A hands-on engineering leader with deep technical expertise across the stack, from fine-tuning Helm charts to crafting pixel-perfect user interfaces with CSS. Adept in multiple programming languages, bringing a polyglot mindset to solving complex technical challenges.',
+  },
+  {
+    heading: 'Empathetic People Leader',
+    content: 'Over a decade of leadership experience, building high-performing teams with clear vision, strong communication, and a culture of trust. Focused on creating environments where engineers excel and teams deliver outstanding results, including managing a 20+ person Generative AI team at Citibank.',
+  },
+  {
+    heading: 'Innovation Catalyst',
+    content: 'Proven ability to drive innovation and challenge the status quo, with over three years leading transformative projects in a Tier 1 bank. Spearheaded initiatives that delivered business impact by harnessing modern technologies and fostering a culture of experimentation.'
+  }
 ]
 
 export const experiences: Experience[] = [
@@ -58,7 +74,7 @@ export const experiences: Experience[] = [
     dates: 'Jan 2024 - Present',
     skills: ['Python', 'Postgres', 'LlamaIndex', 'Next.js', 'React', 'TypeScript', 'MongoDB', 'Kubernetes', 'Helm'],
     achievements: [
-      'Leading engineering of solution teams globally for the Innovation Labs. Scaling from solo to a team of over twenty within a year.',
+      'Leading multi-discipline teams globally for the Innovation Labs, delivering cutting-edge Generative AI solutions. Scaled the team from myself to a team of over twenty within a year.',
       'Delivered to production one of Citi\'s first Generative AI products, enabling the drafting of structured documents, leveraging RAG from structured and unstructured data.',
       'Designed and architected a multi-tenanted producted that is designed for scale, re-use and flexibility.',
       'Accountable for a variety of uses cases for different business verticals; leveraging Generative AI to solve content creation, entity classification, data extraction, and quality assessment problems.',

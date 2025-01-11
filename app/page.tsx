@@ -5,14 +5,14 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { getImageProps } from 'next/image'
 import { MailTo } from '@/components/MailTo'
 
-import { experiences, profile, overview, educations, aboutMe } from '@/data'
+import { experiences, header, profile, educations, aboutMe } from '@/data'
 
 export default function Resume() {
   const avatarProps = getImageProps({
     width: 128,
     height: 128,
-    src: profile.avatarPath,
-    alt: profile.name,
+    src: header.avatarPath,
+    alt: header.name,
   })
 
   return (
@@ -24,7 +24,7 @@ export default function Resume() {
           <Avatar className="h-[134px] w-[134px] border-[3px] border-violet-500/50">
             <AvatarImage {...avatarProps.props} />
             <AvatarFallback>
-              {profile.name
+              {header.name
                 .split(' ')
                 .map((n) => n[0])
                 .join('')}
@@ -32,47 +32,51 @@ export default function Resume() {
           </Avatar>
 
           <div className="flex-1 space-y-4">
-            <h1 className="text-4xl font-bold md:text-5xl">{profile.name}</h1>
-            <h2 className="text-2xl text-muted-foreground md:text-3xl">{profile.title}</h2>
+            <h1 className="text-4xl font-bold md:text-5xl">{header.name}</h1>
+            <h2 className="text-2xl text-muted-foreground md:text-3xl">{header.title}</h2>
 
-            <p className="max-w-2xl text-lg leading-relaxed">{profile.summary}</p>
+            <p className="max-w-2xl text-lg leading-relaxed">{header.summary}</p>
 
             <div className="flex flex-wrap gap-4 text-muted-foreground">
               <MailTo
-                encodedEmail={profile.emailBase64}
+                encodedEmail={header.emailBase64}
                 className="flex items-center gap-2 transition-colors hover:text-violet-500 dark:hover:text-violet-400"
                 prefix={<Mail className="h-4 w-4" />}
               />
               <a
-                href={`https://github.com/${profile.githubHandle}`}
+                href={`https://github.com/${header.githubHandle}`}
                 className="flex items-center gap-2 transition-colors hover:text-violet-500 dark:hover:text-violet-400"
               >
                 <Github className="h-4 w-4" />
-                github.com/{profile.githubHandle}
+                github.com/{header.githubHandle}
               </a>
               <a
-                href={`https://linkedin.com/in/${profile.linkedinHandle}`}
+                href={`https://linkedin.com/in/${header.linkedinHandle}`}
                 className="flex items-center gap-2 transition-colors hover:text-violet-500 dark:hover:text-violet-400"
               >
                 <Linkedin className="h-4 w-4" />
-                linkedin.com/in/{profile.linkedinHandle}
+                linkedin.com/in/{header.linkedinHandle}
               </a>
               <span className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                {profile.location}
+                {header.location}
               </span>
             </div>
           </div>
         </header>
 
-        {/* Overview Section */}
+        {/* Profile Section */}
         <section>
-          <h3 className="mb-4 text-2xl font-semibold">Overview</h3>
-          <ul className="list-outside list-disc space-y-2 pl-6 text-muted-foreground">
-            {overview.map((line) => (
-              <li key={line}>{line}</li>
+          <h3 className="mb-4 text-2xl font-semibold">Profile</h3>
+          <div className="space-y-4">
+            {profile.map((item, index) => (
+              <p key={`profile-${index}`} className="text-muted-foreground">
+                <span className="font-semibold text-foreground">{item.heading}</span>
+                {' - '}
+                {item.content}
+              </p>
             ))}
-          </ul>
+          </div>
         </section>
 
         {/* Experience Section */}
