@@ -19,7 +19,7 @@ export default function Resume() {
     <main className="min-h-screen bg-background p-8 text-foreground md:p-16">
       <div className="mx-auto max-w-4xl space-y-12">
         {/* Header Section */}
-        <header className="flex flex-col items-start gap-8 md:flex-row">
+        <header className="flex flex-col items-start gap-8 md:flex-row print:flex-row">
           {/* Note: Setting the size to 32 (which is 128px) doesn't work because of the border, the image resize makes it fuzzy */}
           <Avatar className="h-[134px] w-[134px] border-[3px] border-violet-500/50">
             <AvatarImage {...avatarProps.props} />

@@ -3,6 +3,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { ThemeToggle } from '@/components/ThemeToggle'
+import { PrintButton } from '@/components/PrintButton'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import { header } from '@/data'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -30,12 +32,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem={false}
           storageKey="resume-theme"
         >
-          <ThemeToggle />
-          {children}
+          <TooltipProvider delayDuration={200}>
+            <ThemeToggle />
+            <PrintButton />
+            {children}
+          </TooltipProvider>
         </ThemeProvider>
         <script
           data-collect-dnt="true"
