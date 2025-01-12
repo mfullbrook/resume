@@ -1,6 +1,7 @@
 export type Header = {
   name: string
   title: string
+  shortTitle: string
   avatarPath: string
   summary: string
   emailBase64: string
@@ -35,6 +36,7 @@ export type AboutMe = {
 export const header: Header = {
   name: 'Mark Fullbrook',
   title: 'Generative AI Engineering Leader',
+  shortTitle: 'Gen AI Eng. Leader',
   avatarPath: '/images/profile-selfie-london2.jpeg',
   summary: 'A Generative AI Engineering Leader with 20 years of diverse software experience, I lead by example, balancing a people-first mindset with hands-on delivery. My portfolio includes challenging projects in highly regulated environments, reflecting my commitment to code craft, technical curiosity, and the creation of scalable, innovative AI solutions that engage both users and stakeholders.',
   emailBase64: 'bWFya0BmdWxsYnJvb2subWU=',
@@ -62,7 +64,7 @@ export const profile: Profile = [
   },
   {
     heading: 'Innovation Catalyst',
-    content: 'Proven ability to drive innovation and challenge the status quo, with over three years leading transformative projects in a Tier 1 bank. Spearheaded initiatives that delivered business impact by harnessing modern technologies and fostering a culture of experimentation.'
+    content: 'Proven ability to drive innovation and challenge the status quo, with over three years leading transformative projects in a Tier 1 bank. Spearheaded initiatives that delivered business impact by harnessing modern technologies and creating a culture of experimentation.'
   }
 ]
 
@@ -90,7 +92,7 @@ export const experiences: Experience[] = [
       {
         item: 'Led a global development team of 12 developers to build, from inception to production, an AI enabled data remediation workflow platform. The software enabled the remediation of thousands of agreements and was vital in a closing a consent order deliverable.', 
         subitems: [
-          'Architected and implement a platfrom that can ececute any BPMN defined workflow, using a combination of Camunda, gRPC, and RabbitMQ.',
+          'Architected and implement a platform that can execute any BPMN defined workflow, using a combination of Camunda, gRPC, and RabbitMQ.',
           'Enterprise level microservices built with Kotlin, Ktor and Spring Boot deployed to OpenShift (Kubernetes).'
         ]
       },
@@ -104,12 +106,12 @@ export const experiences: Experience[] = [
     dates: 'Apr 2016 - Mar 2021',
     skills: ['React Native', 'Laravel', 'Vue.js', 'TypeScript', 'PHP', 'AWS Lambda', 'S3', 'CloudFront', 'Docker', 'CircleCI'],
     overview:
-      'Joined the family business, a mature 65 employee export packing and crate manufacturing company, to lead the introduction of modern technology throughout the business. Universal Packing is the foremost producer of packing crates in London, operating 24/5 with 12-hour turnaround from order to delivery of bespoke crates. Responsibilities included finance, legal and HR with primary focus on technology and system development.',
+      'Led technology transformation and managed finance, legal, and HR at a family-owned export packing and crate manufacturing company with 65 employees. Modernized operations by developing and implementing enterprise systems and tools to optimize workflows and improve decision-making.',
     achievements: [
-      'Architected and developed a new enterprise system to optimise processes throughout the business and negate the reliance on manual systems. New system exposes essential decision-making data and give accountability throughout the entire lifecycle of order to fulfilment and payment collection.',
-      'Developed shop-floor data-capture terminals using web technologies for an ergonomic interface. State changes are presented real-time for operations team.',
-      'Developed a monolithic server-side application, using a modular architecture and domain driven design to model business entities and concepts. Advanced patterns such as event sourcing were deployed throughout. Continuous integration through custom docker images and a bespoke packager to integrate the backend with frontend projects.',
-      'Developed an offline-first, cross platform, React Native mobile app for taking photos of freight. Photos are stored in S3 and shared with customers using Lambda and Cloudfront.',
+      'Designed and implemented an enterprise system to streamline processes, provide real-time operational insights, and reduce reliance on manual systems.',
+      'Built shop-floor data capture terminals with real-time updates for operations, improving efficiency.',
+      'Developed a modular, domain-driven backend application using advanced patterns like event sourcing to provide detailed history of operational events. Bespoke application UI built with Vue.js and Quasar.',
+      'Created an offline-first, cross-platform React Native app to capture freight photos, with S3 storage, and on-demand image processing using AWS Lambda, and customer sharing via CloudFront.',
     ],
   },
   {
@@ -119,11 +121,10 @@ export const experiences: Experience[] = [
     dates: 'Oct 2014 - Mar 2016',
     skills: ['Swift', 'PHP', 'Angular', 'Scrum', 'Lean Methodology'],
     achievements: [
-      'Fostered the early adoption of agile product development, becoming London R&D’s standard bearing team for agile.',
-      'Spearheaded the creation of native Android and iOS apps. Selected and partnered with an external development company to rapidly build a first iteration whilst up-skilling existing team members to create a native mobile development capability within our team.',
-      'Re-structured two teams into three for closer product and skills alignment, resulting in high developer satisfaction and increased product delivery.',
-      'Championed greater collaboration between my team and other industry vertical R&D teams to foster innovation, technology and skill sharing. Resulting in numerous pilots and real product advances.',
-      'Performed annual business planning, presented to Bloomberg LP board and awarded a net five increase in headcount; successfully recruited high-calibre, diverse, engineers both senior and trainee.',
+      'Early adopter of agile product development, becoming London R&D’s standard bearing team for agile.',
+      'Managed the development of native Android and iOS apps by partnering with an external team for rapid delivery while building internal mobile development capabilities.',
+      'Fostered collaboration between my team and other Bloomberg industry verticals R&D teams, leading to pilots and product advancements through shared innovation and technology.',
+      'Secured a net increase of five headcount through effective business planning and board presentations, recruiting high-caliber, diverse engineers at both senior and trainee levels.',
     ],
   },
   {
@@ -173,21 +174,21 @@ export const aboutMe: AboutMe[] = [
   {
     headline: 'I want to work for a company...',
     content:
-      'that has challenging problems to solve with Generative AI; has an appetite to keep up with the pace of innovation and embraces new technologies; promotes work-life balance; has a strong culture that I can connect with and be proud to work for.',
+      'that has challenging problems to solve with Generative AI; has an appetite to keep up with the pace of innovation and embraces new technologies. AI is advancing so rapidly, there are so many new tools which are changing the way we work, if we are permitted to safely use them.  Promotes a healthy work-life balance and has a strong culture that I can connect with and be proud to work for.',
   },
   {
     headline: "I'm interested in roles...",
     content:
-      'that are leadership roles with a strong focus on Generative AI. I\'ve always enjoyed my work, and right now the it\'s a privilege to be working with the hottest technology.  I want to keep doing the same and remain hands on.'
+      'that are leadership roles with a strong focus on Generative AI. I\'ve always enjoyed my work in technology, and feel privileged to be working with the hottest technology.  I want to keep doing the same, leading teams at this exciting time for our industry.',
   },
   {
     headline: 'Outside of work I...',
     content:
-      'prioritise spending time with my family: having mini adventures in the UK, supporting my kids at their sports, or enjoying a home cooked meal and a good movie.  My wife and I have a shared love of travel and always have at least one big adventure planned.',
+      'prioritise spending time with my family - supporting my kids at their sports, enjoying a home cooked meal and a good movie; I\'m a huge F1 fan; for fitness I\'m in the forest on my mountain bike.  My wife and I have a shared love of travel - we always have at least one big adventure planned!',
   },
   {
     headline: "I'm currently building...",
     content:
-      'an agentic executive assistant using LangGraph, interacted via a ReactNative app.   I\'m always learning and building something when I can grab some spare time on the commute or in the evenings.',
+      'an agentic executive assistant using LangGraph, accessible via a ReactNative app.   I\'m always learning and building something when I can grab some spare time on the commute or in the evenings.',
   },
 ]

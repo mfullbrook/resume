@@ -10,7 +10,7 @@ import { header } from '@/data'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: `${header.name} - Professional Resume`,
+  title: `${header.name} - ${header.shortTitle} ${new Date().getFullYear()}`,
   description: `Professional resume of ${header.name}, ${header.title} based in ${header.location}`,
   authors: [{ name: header.name }],
   keywords: [
