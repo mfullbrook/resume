@@ -246,8 +246,6 @@
 
   .profile-column {
     align-self: start;
-    position: sticky;
-    top: 40px;
   }
 
   .section-heading {
@@ -599,10 +597,6 @@
 
   .content-grid {
     grid-template-columns: 1fr;
-  }
-
-  .profile-column {
-    position: static;
   }
 
   .impact-list {
