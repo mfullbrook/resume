@@ -10,6 +10,14 @@ const sections = [
   { id: 'perspective', label: 'Perspective' },
 ]
 
+const scrollSections = [
+  { id: 'profile', label: 'Impact' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'technical-depth', label: 'Technical' },
+  { id: 'education', label: 'Education' },
+  { id: 'perspective', label: 'Perspective' },
+]
+
 export function StickyNavigation() {
   const [isVisible, setIsVisible] = useState(false)
   const [activeSection, setActiveSection] = useState('profile')
@@ -40,7 +48,7 @@ export function StickyNavigation() {
       }
 
       let current = 'experience'
-      for (const section of sections.slice(1)) {
+      for (const section of scrollSections.slice(1)) {
         const element = document.getElementById(section.id)
         if (element && element.getBoundingClientRect().top <= 112) current = section.id
       }
@@ -67,8 +75,10 @@ export function StickyNavigation() {
   return (
     <header className={`sticky-header ${isVisible ? 'is-visible' : ''}`} aria-hidden={!isVisible}>
       <a className="sticky-brand" href="#top" tabIndex={isVisible ? 0 : -1}>
-        <span>MF</span>
-        <strong>Mark Fullbrook</strong>
+        <strong>
+          Mark
+          <span>Fullbrook</span>
+        </strong>
       </a>
 
       <nav className="sticky-desktop-nav" aria-label="Résumé sections">

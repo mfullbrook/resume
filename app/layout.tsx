@@ -1,13 +1,23 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Libre_Baskerville } from 'next/font/google'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { PrintButton } from '@/components/PrintButton'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { header } from '@/data'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
+
+const libreBaskerville = Libre_Baskerville({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
+})
 
 const pageTitle = `${header.name} - ${header.shortTitle}`
 const pageDescription = `CV of ${header.name}, ${header.title} based in ${header.location}. 20+ years building software products, scaling engineering teams and delivering AI platforms in regulated environments.`
@@ -46,7 +56,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body id="top" className={inter.className}>
+      <body
+        id="top"
+        className={`${inter.variable} ${libreBaskerville.variable} ${inter.className}`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

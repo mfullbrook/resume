@@ -1,11 +1,10 @@
 import { ArrowUpRight, Github, Linkedin, Mail, MapPin } from 'lucide-react'
-import { getImageProps } from 'next/image'
+import Image from 'next/image'
 import { Education } from '@/components/Education'
 import { MailTo } from '@/components/MailTo'
 import { StickyNavigation } from '@/components/StickyNavigation'
 import { TechnicalSkill } from '@/components/TechnicalSkill'
 import { WorkExperience } from '@/components/WorkExperience'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { aboutMe, educations, experiences, header, profile, technicalDepth } from '@/data'
 
 function SectionHeading({ eyebrow, children }: { eyebrow: string; children: React.ReactNode }) {
@@ -18,13 +17,6 @@ function SectionHeading({ eyebrow, children }: { eyebrow: string; children: Reac
 }
 
 export default function Resume() {
-  const avatarProps = getImageProps({
-    width: 320,
-    height: 320,
-    src: header.avatarPath,
-    alt: header.name,
-  })
-
   return (
     <main className="resume-shell">
       <StickyNavigation />
@@ -48,15 +40,16 @@ export default function Resume() {
 
             <div className="portrait-wrap">
               <div className="portrait-index">MF / 01</div>
-              <Avatar className="portrait">
-                <AvatarImage {...avatarProps.props} />
-                <AvatarFallback>
-                  {header.name
-                    .split(' ')
-                    .map((name) => name[0])
-                    .join('')}
-                </AvatarFallback>
-              </Avatar>
+              <div className="portrait">
+                <Image
+                  src={header.avatarPath}
+                  alt={header.name}
+                  width={420}
+                  height={525}
+                  priority
+                  sizes="(max-width: 900px) min(70vw, 340px), 340px"
+                />
+              </div>
             </div>
           </div>
 
@@ -121,24 +114,31 @@ export default function Resume() {
                 ))}
               </div>
             </section>
-
-            <section id="technical-depth" className="skills-section">
-              <SectionHeading eyebrow="03 / Practice">Technical depth</SectionHeading>
-              <div className="skill-cloud">
-                {technicalDepth.map((skill) => (
-                  <TechnicalSkill key={skill} name={skill} />
-                ))}
-              </div>
-            </section>
-
-            <section id="education" className="education-section">
-              <SectionHeading eyebrow="04 / Foundation">Education</SectionHeading>
-              {educations.map((education) => (
-                <Education key={education.qualification} education={education} />
-              ))}
-            </section>
           </div>
         </div>
+
+        <section id="technical-depth" className="skills-section full-width-section">
+          <SectionHeading eyebrow="03 / Practice">Selected technical experience</SectionHeading>
+          <div className="technical-groups">
+            {technicalDepth.map((group) => (
+              <section className="technical-group" key={group.title}>
+                <h3>{group.title}</h3>
+                <div className="skill-cloud">
+                  {group.skills.map((skill) => (
+                    <TechnicalSkill key={skill} name={skill} />
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </section>
+
+        <section id="education" className="education-section full-width-section">
+          <SectionHeading eyebrow="04 / Foundation">Education</SectionHeading>
+          {educations.map((education) => (
+            <Education key={education.qualification} education={education} />
+          ))}
+        </section>
 
         <section id="perspective" className="perspective-section">
           <SectionHeading eyebrow="05 / Perspective">Beyond the job title</SectionHeading>
@@ -155,7 +155,7 @@ export default function Resume() {
 
         <footer className="site-footer">
           <p>Mark Fullbrook</p>
-          <p>Technology, people &amp; useful systems.</p>
+          <p>AI platforms. Delivery discipline. Teams that ship.</p>
           <a href="#top">Back to top ↑</a>
         </footer>
       </div>

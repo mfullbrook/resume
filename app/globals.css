@@ -136,29 +136,22 @@
     justify-self: start;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
     color: var(--ink);
     text-decoration: none;
   }
 
-  .sticky-brand span {
-    display: grid;
-    width: 30px;
-    height: 30px;
-    place-items: center;
-    background: var(--signal);
-    color: #06130c;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 0.78rem;
-    font-style: italic;
-    font-weight: 700;
+  .sticky-brand strong {
+    font-family: var(--font-serif);
+    font-size: clamp(1.12rem, 1.7vw, 1.6rem);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 0.82;
   }
 
-  .sticky-brand strong {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 0.95rem;
-    font-weight: 400;
-    letter-spacing: -0.02em;
+  .sticky-brand span {
+    display: block;
+    color: var(--signal);
+    font-style: italic;
   }
 
   .sticky-desktop-nav {
@@ -258,11 +251,11 @@
 
   .hero-copy h1 {
     max-width: 900px;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(5rem, 11vw, 10.5rem);
+    font-family: var(--font-serif);
+    font-size: clamp(5rem, 11vw, 8rem);
     font-weight: 400;
-    letter-spacing: -0.075em;
-    line-height: 0.76;
+    letter-spacing: -0.2rem;
+    line-height: 0.9;
   }
 
   .hero-copy h1 span {
@@ -300,8 +293,8 @@
 
   .portrait {
     width: 100%;
-    height: auto;
     aspect-ratio: 4 / 5;
+    overflow: hidden;
     border: 0;
     border-radius: 0;
     background: var(--signal);
@@ -309,6 +302,9 @@
   }
 
   .portrait img {
+    display: block;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     filter: saturate(0.78) contrast(1.05);
   }
@@ -358,7 +354,7 @@
     display: grid;
     grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.65fr);
     gap: clamp(64px, 8vw, 140px);
-    padding: clamp(90px, 11vw, 160px) 0;
+    padding: clamp(90px, 11vw, 160px) 0 0;
   }
 
   .profile-column {
@@ -380,10 +376,10 @@
   }
 
   .section-heading h2 {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(2.6rem, 4.6vw, 5rem);
+    font-family: var(--font-serif);
+    font-size: max(2.6rem, min(3.5vw, 5rem));
     font-weight: 400;
-    letter-spacing: -0.045em;
+    letter-spacing: -0.05rem;
     line-height: 0.98;
   }
 
@@ -472,11 +468,11 @@
 
   .experience-body h3 {
     max-width: 650px;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(1.55rem, 2.4vw, 2.35rem);
+    font-family: var(--font-serif);
+    font-size: max(1.55rem, min(2.15vw, 2.35rem));
     font-weight: 400;
-    letter-spacing: -0.035em;
-    line-height: 1.08;
+    letter-spacing: -0.035rem;
+    line-height: 1.12;
   }
 
   .experience-company {
@@ -551,19 +547,44 @@
     color: var(--ink);
   }
 
-  .skills-section,
+  .skills-section {
+    padding: clamp(76px, 9vw, 132px) 0;
+    border-top: 1px solid var(--ink);
+  }
+
   .education-section {
-    padding-top: 100px;
+    padding: clamp(76px, 9vw, 120px) 0 0;
+  }
+
+  .technical-groups {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(28px, 4vw, 56px);
+  }
+
+  .technical-group {
+    min-width: 0;
+    padding-top: 22px;
+    border-top: 1px solid var(--ink);
+  }
+
+  .technical-group h3 {
+    margin-bottom: 22px;
+    color: var(--signal-dark);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
   }
 
   .skill-cloud {
     margin-top: 0;
-    gap: 10px;
+    gap: 12px;
   }
 
   .skill-cloud .skill-tag {
     min-height: 42px;
-    padding: 9px 14px;
+    padding: 10px 15px;
     border-color: var(--ink);
     color: var(--ink);
     font-size: 0.75rem;
@@ -585,10 +606,10 @@
   }
 
   .education-item h3 {
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: var(--font-serif);
     font-size: clamp(1.4rem, 2vw, 2rem);
     font-weight: 400;
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
   }
 
   .education-item div p {
@@ -634,10 +655,10 @@
 
   .perspective-grid h3 {
     margin-top: 45px;
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: var(--font-serif);
     font-size: clamp(1.7rem, 2.8vw, 2.8rem);
     font-weight: 400;
-    letter-spacing: -0.04em;
+    letter-spacing: 0;
   }
 
   .perspective-grid p {
@@ -799,6 +820,11 @@
     column-gap: 30px;
   }
 
+  .technical-groups {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
   .perspective-grid {
     grid-template-columns: 1fr;
   }
@@ -827,7 +853,7 @@
   }
 
   .sticky-brand strong {
-    display: none;
+    font-size: 1rem;
   }
 
   .resume-frame {
@@ -844,7 +870,7 @@
   }
 
   .hero-copy h1 {
-    font-size: clamp(4.4rem, 23vw, 7rem);
+    font-size: clamp(4rem, 21vw, 6.3rem);
   }
 
   .hero-summary {
@@ -875,11 +901,15 @@
 
   .content-grid {
     gap: 90px;
-    padding: 90px 0;
+    padding: 90px 0 0;
   }
 
   .impact-list {
     grid-template-columns: 1fr;
+  }
+
+  .technical-groups {
+    gap: 30px;
   }
 
   .experience-item {
@@ -902,9 +932,12 @@
     gap: 12px;
   }
 
-  .skills-section,
+  .skills-section {
+    padding: 80px 0;
+  }
+
   .education-section {
-    padding-top: 80px;
+    padding: 80px 0 0;
   }
 
   .site-footer {
@@ -1056,6 +1089,20 @@
   .experience-skills,
   .skill-cloud {
     margin-top: 10px;
+  }
+
+  .technical-groups {
+    display: block;
+  }
+
+  .technical-group {
+    padding-top: 10px;
+    margin-top: 12px;
+  }
+
+  .technical-group h3 {
+    margin-bottom: 8px;
+    font-size: 6pt;
   }
 
   .skill-tag,

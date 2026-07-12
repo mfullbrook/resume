@@ -33,13 +33,18 @@ export type AboutMe = {
   content: string
 }
 
+export type TechnicalGroup = {
+  title: string
+  skills: string[]
+}
+
 export const header: Header = {
   name: 'Mark Fullbrook',
   title: 'Technology & AI Engineering Leader',
   shortTitle: 'Technology & AI Leader',
   avatarPath: '/images/profile-selfie-london2.jpeg',
   summary:
-    "Hands-on technology leader with more than 20 years' experience building software products, modernising platforms and leading high-performing engineering teams. At Citi, I scaled a global Generative AI engineering function from one to more than 20 people and led regulated AI products from concept into production. Previously, as a director of a 65-person manufacturing and export business, I led technology transformation alongside responsibilities spanning finance, operations, people and governance. I combine strategic and commercial judgement with the technical depth to remain close to architecture and delivery.",
+    "Hands-on technology leader with deep Generative AI expertise and more than 20 years’ experience building software products, modernising platforms and leading global engineering teams. At Citi, I built and scaled a global Generative AI engineering capability from one to more than 20 people and led multiple AI products from concept to production in a highly regulated environment. Previously, as a director of a 65-person manufacturing and export business, I led technology transformation alongside responsibilities spanning finance, operations, legal and people. A lifelong builder and relentless tinkerer, I combine strategic and commercial judgement with the technical depth to challenge assumptions and stay close to architecture and delivery.",
   emailBase64: 'bWFya0BmdWxsYnJvb2subWU=',
   githubHandle: 'mfullbrook',
   linkedinHandle: 'markcfullbrook',
@@ -205,12 +210,12 @@ export const aboutMe: AboutMe[] = [
   {
     headline: 'How I lead',
     content:
-      'I set clear direction, establish strong ownership and push decisions towards the people closest to the work. I favour short feedback loops, incremental delivery and learning from production over large, high-risk programmes. I remain technically engaged enough to challenge architecture and unblock teams, without making myself the bottleneck.',
+      'I lead by making the business outcome and constraints clear, building multidisciplinary teams around the problem and giving capable people real ownership. I stay close enough to the work to challenge assumptions, unblock difficult problems and understand the consequences of our decisions, but I do not want every decision to pass through me. I set high standards for engineering and delivery while encouraging honest disagreement, shared learning and professional growth. I favour small releases, short feedback loops and evidence from users and production over long programmes built on untested assumptions.',
   },
   {
     headline: 'Outside work',
     content:
-      "Family comes first - supporting my kids at their sports, a home cooked meal and a good film. I'm a huge F1 fan, and I keep fit on my mountain bike in the forest. My wife and I share a love of travel, and we always have at least one big adventure planned.",
+      "Family comes first - supporting my kids at their sports, a home cooked meal and a good film. I'm a huge F1 fan, and I keep fit on my Brompton into London and my mountain bike in the local forests. My wife and I share a love of travel, and we always have at least one big adventure planned.",
   },
   {
     headline: 'Independent projects',
@@ -219,15 +224,51 @@ export const aboutMe: AboutMe[] = [
   },
 ]
 
-export const technicalDepth: string[] = [
-  'Generative AI and LLM systems',
-  'Retrieval and agentic workflows',
-  'Python',
-  'TypeScript',
-  'Kotlin',
-  'API and event-driven architecture',
-  'Kubernetes and cloud platforms',
-  'Data platforms',
-  'Continuous delivery',
-  'Production observability',
+export const technicalDepth: TechnicalGroup[] = [
+  {
+    title: 'AI and data',
+    skills: [
+      'Generative AI',
+      'AI agents',
+      'Voice AI',
+      'Retrieval-augmented generation',
+      'AI evaluation and governance',
+      'Data pipelines',
+      'Unstructured data extraction',
+      'Relational database design',
+    ],
+  },
+  {
+    title: 'Architecture and delivery',
+    skills: [
+      'Platform architecture',
+      'Multi-tenant systems',
+      'Microservices',
+      'Majestic Monoliths',
+      'API design',
+      'Event-driven systems',
+      'Workflow automation',
+      'Kubernetes and OpenShift',
+      'AWS & GCP',
+      'Docker',
+      'Continuous delivery',
+      'Production observability',
+    ],
+  },
+  {
+    title: 'Languages and frameworks',
+    skills: [
+      'Python',
+      'Kotlin',
+      'PHP',
+      'Laravel',
+      'TypeScript',
+      'Next.js',
+      'React',
+      'gRPC',
+      'RabbitMQ',
+      'Camunda / BPMN',
+      'OTel'
+    ],
+  },
 ]
