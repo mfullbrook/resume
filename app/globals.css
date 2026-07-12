@@ -102,6 +102,123 @@
     padding: 24px clamp(24px, 5vw, 80px) 48px;
   }
 
+  .sticky-header {
+    position: fixed;
+    z-index: 40;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 58px;
+    display: grid;
+    grid-template-columns: minmax(170px, 1fr) auto minmax(120px, 1fr);
+    align-items: center;
+    padding-right: 124px;
+    padding-left: max(clamp(24px, 5vw, 80px), calc((100vw - 1500px) / 2 + 80px));
+    border-bottom: 1px solid var(--line);
+    background: color-mix(in srgb, var(--paper) 94%, transparent);
+    color: var(--ink);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-100%);
+    backdrop-filter: blur(16px);
+    transition:
+      opacity 180ms ease-out,
+      transform 220ms ease-out;
+  }
+
+  .sticky-header.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .sticky-brand {
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .sticky-brand span {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    background: var(--signal);
+    color: #06130c;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 0.78rem;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  .sticky-brand strong {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  .sticky-desktop-nav {
+    grid-column: 2;
+    display: flex;
+    align-items: stretch;
+    align-self: stretch;
+  }
+
+  .sticky-desktop-nav a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    color: var(--ink-soft);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .sticky-desktop-nav a::after {
+    content: '';
+    position: absolute;
+    right: 14px;
+    bottom: -1px;
+    left: 14px;
+    height: 3px;
+    background: var(--signal);
+    opacity: 0;
+    transform: scaleX(0.25);
+    transition:
+      opacity 150ms ease-out,
+      transform 180ms ease-out;
+  }
+
+  .sticky-desktop-nav a:hover,
+  .sticky-desktop-nav a[aria-current='location'] {
+    color: var(--ink);
+  }
+
+  .sticky-desktop-nav a:hover::after,
+  .sticky-desktop-nav a[aria-current='location']::after {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  .sticky-mobile-menu {
+    display: none;
+  }
+
+  #profile,
+  #experience,
+  #technical-depth,
+  #education,
+  #perspective {
+    scroll-margin-top: 88px;
+  }
+
   .hero {
     min-height: min(920px, 92vh);
     display: flex;
@@ -569,6 +686,83 @@
 }
 
 @media (max-width: 900px) {
+  .sticky-header {
+    grid-template-columns: 1fr auto;
+    padding-right: 122px;
+  }
+
+  .sticky-desktop-nav {
+    display: none;
+  }
+
+  .sticky-mobile-menu {
+    position: relative;
+    display: block;
+  }
+
+  .sticky-mobile-menu summary {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    list-style: none;
+    text-transform: uppercase;
+  }
+
+  .sticky-mobile-menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .sticky-mobile-menu summary::after {
+    content: '+';
+    margin-left: 8px;
+    color: var(--signal-dark);
+    font-size: 1rem;
+  }
+
+  .sticky-mobile-menu[open] summary::after {
+    content: '−';
+  }
+
+  .sticky-mobile-menu nav {
+    position: absolute;
+    top: calc(100% + 7px);
+    right: 0;
+    min-width: 190px;
+    display: grid;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    box-shadow: 8px 8px 0 var(--signal);
+  }
+
+  .sticky-mobile-menu nav a {
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .sticky-mobile-menu nav a:last-child {
+    border-bottom: 0;
+  }
+
+  .sticky-mobile-menu nav a[aria-current='location'] {
+    background: var(--signal);
+    color: #06130c;
+  }
+
   .hero {
     min-height: auto;
   }
@@ -627,6 +821,15 @@
 }
 
 @media (max-width: 600px) {
+  .sticky-header {
+    min-height: 54px;
+    padding: 0 108px 0 14px;
+  }
+
+  .sticky-brand strong {
+    display: none;
+  }
+
   .resume-frame {
     padding: 18px 18px 34px;
   }
@@ -751,6 +954,10 @@
   .resume-frame {
     width: 100%;
     padding: 0;
+  }
+
+  .sticky-header {
+    display: none;
   }
 
   .hero {

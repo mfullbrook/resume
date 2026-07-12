@@ -2,6 +2,7 @@ import { ArrowUpRight, Github, Linkedin, Mail, MapPin } from 'lucide-react'
 import { getImageProps } from 'next/image'
 import { Education } from '@/components/Education'
 import { MailTo } from '@/components/MailTo'
+import { StickyNavigation } from '@/components/StickyNavigation'
 import { TechnicalSkill } from '@/components/TechnicalSkill'
 import { WorkExperience } from '@/components/WorkExperience'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -26,6 +27,7 @@ export default function Resume() {
 
   return (
     <main className="resume-shell">
+      <StickyNavigation />
       <div className="resume-frame">
         <header className="hero">
           <div className="hero-topline" aria-hidden="true">
@@ -58,7 +60,7 @@ export default function Resume() {
             </div>
           </div>
 
-          <nav className="contact-strip" aria-label="Contact links">
+          <nav id="contact-strip" className="contact-strip" aria-label="Contact links">
             <MailTo
               encodedEmail={header.emailBase64}
               className="contact-link"
@@ -92,7 +94,7 @@ export default function Resume() {
         </header>
 
         <div className="content-grid">
-          <aside className="profile-column">
+          <aside id="profile" className="profile-column">
             <SectionHeading eyebrow="01 / Profile">Selected impact</SectionHeading>
             <ol className="impact-list">
               {profile.map((item, index) => (
@@ -120,7 +122,7 @@ export default function Resume() {
               </div>
             </section>
 
-            <section className="skills-section">
+            <section id="technical-depth" className="skills-section">
               <SectionHeading eyebrow="03 / Practice">Technical depth</SectionHeading>
               <div className="skill-cloud">
                 {technicalDepth.map((skill) => (
@@ -129,7 +131,7 @@ export default function Resume() {
               </div>
             </section>
 
-            <section className="education-section">
+            <section id="education" className="education-section">
               <SectionHeading eyebrow="04 / Foundation">Education</SectionHeading>
               {educations.map((education) => (
                 <Education key={education.qualification} education={education} />
@@ -138,7 +140,7 @@ export default function Resume() {
           </div>
         </div>
 
-        <section className="perspective-section">
+        <section id="perspective" className="perspective-section">
           <SectionHeading eyebrow="05 / Perspective">Beyond the job title</SectionHeading>
           <div className="perspective-grid">
             {aboutMe.map((item, index) => (
