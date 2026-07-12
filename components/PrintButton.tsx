@@ -3,11 +3,7 @@
 import { Download } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useTheme } from 'next-themes'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 
 export function PrintButton() {
   const { theme, setTheme } = useTheme()
@@ -16,7 +12,7 @@ export function PrintButton() {
     const previousTheme = theme
     // Switch to light theme
     setTheme('light')
-    
+
     // Wait for theme change to take effect
     setTimeout(() => {
       window.print()
@@ -34,7 +30,7 @@ export function PrintButton() {
           variant="ghost"
           size="icon"
           onClick={handlePrint}
-          className="fixed right-16 top-4 print:hidden"
+          className="utility-button fixed right-[4.5rem] top-5 z-50 print:hidden"
         >
           <Download className="h-[1.2rem] w-[1.2rem]" />
           <span className="sr-only">Print to PDF</span>

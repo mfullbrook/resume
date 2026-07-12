@@ -6,16 +6,12 @@ interface EducationProps {
 
 export function Education({ education: { qualification, institution, dates } }: EducationProps) {
   return (
-    <div className="rounded-xl border border-border bg-card p-6 shadow-sm print:break-inside-avoid">
-      <div className="flex flex-wrap justify-between gap-4">
-        <div>
-          <h4 className="text-xl font-semibold">{qualification}</h4>
-          <p className="font-medium text-violet-500 dark:text-violet-400">{institution}</p>
-        </div>
-        <div className="text-right">
-          <div className="text-muted-foreground">{dates}</div>
-        </div>
+    <article className="education-item print:break-inside-avoid">
+      <p>{dates}</p>
+      <div>
+        <h3>{qualification}</h3>
+        <p>{institution}</p>
       </div>
-    </div>
+    </article>
   )
 }
