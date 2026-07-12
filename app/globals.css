@@ -29,7 +29,7 @@
     --ink-soft: #56615c;
     --line: #b8c0bb;
     --signal: #00b86b;
-    --signal-dark: #002e20;
+    --signal-dark: #007348;
   }
 
   .dark {
@@ -55,7 +55,7 @@
     --ink-soft: #a6b0aa;
     --line: #3a4640;
     --signal: #39ee96;
-    --signal-dark: #d7ffe8;
+    --signal-dark: #63f6ad;
   }
 
   * {
@@ -938,7 +938,7 @@
     --ink-soft: #49544f;
     --line: #aab1ad;
     --signal: #008a51;
-    --signal-dark: #00603a;
+    --signal-dark: #006a41;
   }
 
   html,
