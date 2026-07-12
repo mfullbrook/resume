@@ -6,7 +6,7 @@ interface EducationProps {
 
 export function Education({ education: { qualification, institution, dates } }: EducationProps) {
   return (
-    <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+    <div className="rounded-xl border border-border bg-card p-6 shadow-sm print:break-inside-avoid">
       <div className="flex flex-wrap justify-between gap-4">
         <div>
           <h4 className="text-xl font-semibold">{qualification}</h4>

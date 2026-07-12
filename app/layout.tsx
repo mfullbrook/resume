@@ -9,20 +9,37 @@ import { header } from '@/data'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const pageTitle = `${header.name} - ${header.shortTitle}`
+const pageDescription = `CV of ${header.name}, ${header.title} based in ${header.location}. 20+ years building software products, scaling engineering teams and delivering AI platforms in regulated environments.`
+
 export const metadata: Metadata = {
-  title: `${header.name} - ${header.shortTitle} ${new Date().getFullYear()}`,
-  description: `Professional resume of ${header.name}, ${header.title} based in ${header.location}`,
+  metadataBase: new URL('https://fullbrook.cv'),
+  title: pageTitle,
+  description: pageDescription,
   authors: [{ name: header.name }],
   keywords: [
-    'resume',
+    'cv',
     'curriculum vitae',
-    'engineering manager',
+    'technology leader',
+    'engineering leadership',
     'generative ai',
-    'software engineer',
+    'platform architecture',
   ],
   robots: {
     index: true,
     follow: true,
+  },
+  openGraph: {
+    type: 'profile',
+    url: 'https://fullbrook.cv',
+    siteName: pageTitle,
+    title: pageTitle,
+    description: pageDescription,
+  },
+  twitter: {
+    card: 'summary',
+    title: pageTitle,
+    description: pageDescription,
   },
 }
 

@@ -10,7 +10,7 @@ export function WorkExperience({
   experience: { title, company, overview, location, dates, skills, achievements },
 }: WorkExperienceProps) {
   return (
-    <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
+    <div className="rounded-xl border border-border bg-card p-6 shadow-sm print:break-inside-avoid">
       <div className="mb-4 flex flex-wrap justify-between gap-4">
         <div>
           <h4 className="text-xl font-semibold">{title}</h4>
@@ -35,12 +35,12 @@ export function WorkExperience({
       )}
 
       {achievements && achievements.length > 0 && (
-        <ul className="ml-2 list-outside list-disc space-y-2 text-muted-foreground pl-5">
-          {achievements.map((achievement, idx) => (
+        <ul className="ml-2 list-outside list-disc space-y-2 pl-5 text-muted-foreground">
+          {achievements.map((achievement, idx) =>
             typeof achievement === 'object' ? (
               <li key={`achievement-${idx}`}>
                 {achievement.item}
-                <ul className="ml-2 list-outside list-disc space-y-2 text-muted-foreground pl-5">
+                <ul className="ml-2 list-outside list-disc space-y-2 pl-5 text-muted-foreground">
                   {achievement.subitems.map((subitem, subIdx) => (
                     <li key={`subachievement-${idx}-${subIdx}`}>{subitem}</li>
                   ))}
@@ -49,7 +49,7 @@ export function WorkExperience({
             ) : (
               <li key={`achievement-${idx}`}>{achievement}</li>
             )
-          ))}
+          )}
         </ul>
       )}
     </div>

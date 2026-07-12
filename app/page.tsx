@@ -4,8 +4,9 @@ import { Education } from '@/components/Education'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { getImageProps } from 'next/image'
 import { MailTo } from '@/components/MailTo'
+import { TechnicalSkill } from '@/components/TechnicalSkill'
 
-import { experiences, header, profile, educations, aboutMe } from '@/data'
+import { experiences, header, profile, educations, aboutMe, technicalDepth } from '@/data'
 
 export default function Resume() {
   const avatarProps = getImageProps({
@@ -67,7 +68,9 @@ export default function Resume() {
 
         {/* Profile Section */}
         <section>
-          <h3 className="mb-4 text-2xl font-semibold">Profile</h3>
+          <h3 className="mb-4 text-2xl font-semibold print:break-after-avoid">
+            Selected leadership impact
+          </h3>
           <div className="space-y-4">
             {profile.map((item, index) => (
               <p key={`profile-${index}`} className="text-muted-foreground">
@@ -81,7 +84,7 @@ export default function Resume() {
 
         {/* Experience Section */}
         <section>
-          <h3 className="mb-6 text-2xl font-semibold">Experience</h3>
+          <h3 className="mb-6 text-2xl font-semibold print:break-after-avoid">Experience</h3>
           <div className="space-y-8">
             {experiences.map((experience, index) => (
               <WorkExperience key={'exp-' + index} experience={experience} />
@@ -91,7 +94,7 @@ export default function Resume() {
 
         {/* Education Section */}
         <section>
-          <h3 className="mb-4 text-2xl font-semibold">Education</h3>
+          <h3 className="mb-4 text-2xl font-semibold print:break-after-avoid">Education</h3>
           <div className="space-y-4">
             {educations.map((education, index) => (
               <Education key={`edu-${index}`} education={education} />
@@ -99,19 +102,24 @@ export default function Resume() {
           </div>
         </section>
 
-        {/* More About Me Section */}
+        {/* About Me Sections */}
+        <div className="grid gap-8 md:grid-cols-2">
+          {aboutMe.map((item, index) => (
+            <section key={`about-${index}`}>
+              <h3 className="mb-4 text-2xl font-semibold print:break-after-avoid">
+                {item.headline}
+              </h3>
+              <p className="text-muted-foreground">{item.content}</p>
+            </section>
+          ))}
+        </div>
+
+        {/* Technical Depth Section */}
         <section>
-          <h3 className="mb-6 text-2xl font-semibold">More About Me</h3>
-          <div className="grid gap-8 md:grid-cols-2">
-            {aboutMe.map((item, index) => (
-              <div key={`about-${index}`} className="space-y-4">
-                <div>
-                  <h4 className="mb-2 text-lg font-semibold text-violet-500 dark:text-violet-400">
-                    {item.headline}
-                  </h4>
-                  <p className="text-muted-foreground">{item.content}</p>
-                </div>
-              </div>
+          <h3 className="mb-4 text-2xl font-semibold print:break-after-avoid">Technical depth</h3>
+          <div className="flex flex-wrap gap-2">
+            {technicalDepth.map((skill, index) => (
+              <TechnicalSkill key={`depth-${index}`} name={skill} />
             ))}
           </div>
         </section>

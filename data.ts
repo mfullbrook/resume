@@ -35,10 +35,11 @@ export type AboutMe = {
 
 export const header: Header = {
   name: 'Mark Fullbrook',
-  title: 'Generative AI Engineering Leader',
-  shortTitle: 'Gen AI Eng. Leader',
+  title: 'Technology & AI Engineering Leader',
+  shortTitle: 'Technology & AI Leader',
   avatarPath: '/images/profile-selfie-london2.jpeg',
-  summary: 'A Generative AI Engineering Leader with 20 years of diverse software experience, I lead by example, balancing a people-first mindset with hands-on delivery. My portfolio includes challenging projects in highly regulated environments, reflecting my commitment to code craft, technical curiosity, and the creation of scalable, innovative AI solutions that engage both users and stakeholders.',
+  summary:
+    "Hands-on technology leader with more than 20 years' experience building software products, modernising platforms and leading high-performing engineering teams. At Citi, I scaled a global Generative AI engineering function from one to more than 20 people and led regulated AI products from concept into production. Previously, as a director of a 65-person manufacturing and export business, I led technology transformation alongside responsibilities spanning finance, operations, people and governance. I combine strategic and commercial judgement with the technical depth to remain close to architecture and delivery.",
   emailBase64: 'bWFya0BmdWxsYnJvb2subWU=',
   githubHandle: 'mfullbrook',
   linkedinHandle: 'markcfullbrook',
@@ -47,39 +48,73 @@ export const header: Header = {
 
 export const profile: Profile = [
   {
-    heading: 'AI Advocate',
-    content: 'A passionate advocate for leveraging AI as a core element of business strategy. Proven track record of delivering cutting-edge AI solutions - led projects at Citibank that have transformed workflows. Now leading a portfolio of AI enabled solutions across diverse business lines.'
-  },
-  { 
-    heading: 'Architectural Excellence',
-    content: 'As a seasoned software architect, I’ve designed and delivered complex systems—from bespoke ERP solutions, e-commerce, mobile apps, and now generative AI products. I excel at evaluating technologies to make informed choices that align with product and business goals.'
+    heading: 'Built and scaled an AI engineering capability',
+    content:
+      'Grew a global Generative AI engineering team from one to more than 20 people within a year, spanning engineering, product and delivery disciplines.',
   },
   {
-    heading: 'Hands-On Full Stack Technologist',
-    content: 'A hands-on engineering leader with deep technical expertise across the stack, from fine-tuning Helm charts to crafting pixel-perfect user interfaces with CSS. Adept in multiple programming languages, bringing a polyglot mindset to solving complex technical challenges.',
+    heading: 'Delivered regulated AI into production',
+    content:
+      "Led one of Citi's earliest production Generative AI platforms, combining structured and unstructured information to support controlled, auditable business workflows.",
   },
   {
-    heading: 'Empathetic People Leader',
-    content: 'Over a decade of leadership experience, building high-performing teams with clear vision, strong communication, and a culture of trust. Focused on creating environments where engineers excel and teams deliver outstanding results, including managing a 20+ person Generative AI team at Citibank.',
+    heading: 'Created reusable platforms',
+    content:
+      'Designed multi-tenant systems and shared capabilities that could support multiple business areas without duplicating architecture and delivery effort.',
   },
   {
-    heading: 'Innovation Catalyst',
-    content: 'Proven ability to drive innovation and challenge the status quo, with over three years leading transformative projects in a Tier 1 bank. Spearheaded initiatives that delivered business impact by harnessing modern technologies and creating a culture of experimentation.'
-  }
+    heading: 'Led business-wide transformation',
+    content:
+      'As a director of a 65-person manufacturing and export company, combined technology leadership with responsibility across finance, HR, legal and day-to-day operations.',
+  },
+  {
+    heading: 'Remain technically hands-on',
+    content:
+      'Continue to work directly with architecture, code and delivery teams while setting direction, developing people and communicating technology decisions to senior stakeholders.',
+  },
 ]
 
 export const experiences: Experience[] = [
   {
+    title: 'Principal Generative AI Software Engineer',
+    company: 'Citi Markets Technology',
+    location: 'London',
+    dates: 'Sep 2025 - Present',
+    skills: [
+      'Generative AI',
+      'Agentic systems',
+      'Python',
+      'React',
+      'TypeScript',
+      'APIs',
+      'Data platforms',
+      'Kubernetes',
+    ],
+    overview:
+      "Leading the architecture and engineering delivery of an enterprise Generative AI platform that brings governed data, tools and AI-assisted workflows into the daily work of Citi's Markets teams.",
+    achievements: [
+      'Lead the technical direction and delivery of a multidisciplinary team building an agentic AI platform across multiple Markets businesses.',
+      'Designed a modular architecture combining a shared conversational platform with specialist agents, tools and services, allowing new business capabilities to be added incrementally.',
+      'Led the development of user experiences across Microsoft Teams and the web, supported by shared conversation, orchestration and integration services.',
+      'Shaped the data architecture required to ingest, standardise and retrieve large volumes of Markets information reliably and efficiently.',
+      'Embedded entitlements, auditability, human oversight and production controls into the platform, working within model-risk, cybersecurity and regulatory governance requirements.',
+      'Work closely with Markets stakeholders, product leaders and senior technology management to translate business ambitions into a practical roadmap and engineering priorities.',
+      'Remain hands-on across architecture, implementation and problem-solving while providing leadership across engineering disciplines and organisational boundaries.',
+    ],
+  },
+  {
     title: 'Generative AI Engineering Manager',
     company: 'Citi Innovation Labs',
     location: 'London',
-    dates: 'Jan 2024 - Present',
-    skills: ['Python', 'Postgres', 'LlamaIndex', 'Next.js', 'React', 'TypeScript', 'MongoDB', 'Kubernetes', 'Helm'],
+    dates: 'Jan 2024 - Aug 2025',
+    skills: ['Generative AI', 'Retrieval (RAG)', 'Python', 'TypeScript', 'React', 'Kubernetes'],
     achievements: [
-      'Leading multi-discipline teams globally for the Innovation Labs, delivering cutting-edge Generative AI solutions. Scaled the team from myself to a team of over twenty within a year.',
-      'Delivered to production one of Citi\'s first Generative AI products, enabling the drafting of structured documents, leveraging RAG from structured and unstructured data.',
-      'Designed and architected a multi-tenanted producted that is designed for scale, re-use and flexibility.',
-      'Accountable for a variety of uses cases for different business verticals; leveraging Generative AI to solve content creation, entity classification, data extraction, and quality assessment problems.',
+      'Built and led a global, multidisciplinary Generative AI team, scaling from one engineer to more than 20 within a year.',
+      "Delivered one of Citi's earliest production Generative AI products, supporting the controlled drafting of structured documents using retrieval across structured and unstructured information.",
+      'Designed a reusable, multi-tenant platform capable of supporting multiple business areas, use cases and delivery teams.',
+      'Established shared configuration, evaluation, audit and moderation capabilities to improve quality, governance and operational confidence.',
+      'Challenged a proposed platform rewrite through practical performance testing, demonstrating that the existing architecture could scale while reducing projected infrastructure costs by approximately 30%.',
+      'Partnered with business, product and governance stakeholders to move AI initiatives beyond prototypes and into supported production services.',
     ],
   },
   {
@@ -87,16 +122,14 @@ export const experiences: Experience[] = [
     company: 'Citi Innovation Labs',
     location: 'London',
     dates: 'Apr 2021 - Dec 2023',
-    skills: ['Kotlin', 'Camunda', 'gRPC', 'Oracle', 'RabbitMQ', 'Kubernetes', 'Nest.js', 'Typescript', 'React', 'Ant Design'],
+    skills: ['Kotlin', 'Camunda', 'gRPC', 'RabbitMQ', 'Kubernetes', 'TypeScript', 'React'],
     achievements: [
-      {
-        item: 'Led a global development team of 12 developers to build, from inception to production, an AI enabled data remediation workflow platform. The software enabled the remediation of thousands of agreements and was vital in a closing a consent order deliverable.', 
-        subitems: [
-          'Architected and implement a platform that can execute any BPMN defined workflow, using a combination of Camunda, gRPC, and RabbitMQ.',
-          'Enterprise level microservices built with Kotlin, Ktor and Spring Boot deployed to OpenShift (Kubernetes).'
-        ]
-      },
-      'Promoted from VP to SVP in January 2023',
+      'Led a global team of 12 engineers to design and deliver an AI-enabled data remediation platform from inception through production.',
+      'Supported the remediation of thousands of legal agreements as part of a major regulatory programme.',
+      'Created a reusable workflow platform combining business process orchestration, event-driven services and controlled human decision points.',
+      'Worked with operations, legal, product and senior technology stakeholders to turn complex regulatory requirements into practical software workflows.',
+      'Established modern engineering practices across automated testing, containerised deployment, production support and incremental delivery.',
+      'Promoted from VP to SVP in January 2023.',
     ],
   },
   {
@@ -104,14 +137,16 @@ export const experiences: Experience[] = [
     company: 'Universal Packing Specialists',
     location: 'London',
     dates: 'Apr 2016 - Mar 2021',
-    skills: ['React Native', 'Laravel', 'Vue.js', 'TypeScript', 'PHP', 'AWS Lambda', 'S3', 'CloudFront', 'Docker', 'CircleCI'],
+    skills: ['Technology strategy', 'Operational change', 'TypeScript', 'PHP', 'AWS'],
     overview:
-      'Led technology transformation and managed finance, legal, and HR at a family-owned export packing and crate manufacturing company with 65 employees. Modernized operations by developing and implementing enterprise systems and tools to optimize workflows and improve decision-making.',
+      "Board director of a 65-person export packing and manufacturing business, with responsibilities spanning technology strategy, finance, legal, HR and operational improvement. Combined leadership accountability with hands-on transformation of the company's systems and working practices.",
     achievements: [
-      'Designed and implemented an enterprise system to streamline processes, provide real-time operational insights, and reduce reliance on manual systems.',
-      'Built shop-floor data capture terminals with real-time updates for operations, improving efficiency.',
-      'Developed a modular, domain-driven backend application using advanced patterns like event sourcing to provide detailed history of operational events. Bespoke application UI built with Vue.js and Quasar.',
-      'Created an offline-first, cross-platform React Native app to capture freight photos, with S3 storage, and on-demand image processing using AWS Lambda, and customer sharing via CloudFront.',
+      'Developed and executed a company-wide technology modernisation strategy, replacing fragmented manual processes with an integrated operational platform.',
+      'Worked directly with finance, sales, factory, warehouse and logistics teams to redesign workflows and improve operational visibility.',
+      'Introduced real-time shop-floor data capture, giving managers more accurate information about work in progress and operational performance.',
+      'Built mobile and customer-facing capabilities that improved traceability, evidence capture and communication throughout the fulfilment process.',
+      'Managed organisational change around new systems, ensuring technology was adopted by operational teams rather than merely delivered to them.',
+      'Balanced investment, operational priorities and technical ambition within the commercial constraints of a privately owned business.',
     ],
   },
   {
@@ -119,12 +154,12 @@ export const experiences: Experience[] = [
     company: 'BloombergNEF',
     location: 'London',
     dates: 'Oct 2014 - Mar 2016',
-    skills: ['Swift', 'PHP', 'Angular', 'Scrum', 'Lean Methodology'],
+    skills: ['Product leadership', 'Agile delivery', 'Mobile', 'Hiring'],
     achievements: [
-      'Early adopter of agile product development, becoming London R&D’s standard bearing team for agile.',
-      'Managed the development of native Android and iOS apps by partnering with an external team for rapid delivery while building internal mobile development capabilities.',
-      'Fostered collaboration between my team and other Bloomberg industry verticals R&D teams, leading to pilots and product advancements through shared innovation and technology.',
-      'Secured a net increase of five headcount through effective business planning and board presentations, recruiting high-caliber, diverse engineers at both senior and trainee levels.',
+      "Established a product-led, iterative delivery model that became a reference point for agile delivery across Bloomberg's London R&D organisation.",
+      'Managed the development of native Android and iOS apps by partnering with an external team for rapid delivery while building internal mobile development capability.',
+      'Fostered collaboration between my team and other Bloomberg industry verticals, leading to pilots and product advancements through shared innovation and technology.',
+      'Secured a net increase of five headcount through effective business planning and senior presentations, recruiting high-calibre, diverse engineers at both senior and trainee levels.',
     ],
   },
   {
@@ -132,12 +167,9 @@ export const experiences: Experience[] = [
     company: 'BloombergNEF',
     location: 'London',
     dates: 'Aug 2012 - Oct 2014',
-    skills: ['PHP', 'Symfony', 'MySQL', 'JavaScript', 'Angular', 'Cordova', 'Jenkins'],
     achievements: [
-      'Developed MVP hybrid (Cordova) mobile application and supporting APIs for consuming digital rights managed content offline.',
-      'Replaced legacy code with APIs to deliver content suitable for web and Bloomberg terminal.',
-      'Mentored junior developers to achieve their full potential and deliver enterprise quality code.',
-      'Contributed developer experience improvements to all web properties of BloombergNEF.',
+      'Delivered the MVP mobile application and supporting APIs for offline access to digital rights managed research content.',
+      'Replaced legacy code with APIs serving both web and the Bloomberg terminal, and mentored junior engineers as the team grew.',
     ],
   },
   {
@@ -145,13 +177,12 @@ export const experiences: Experience[] = [
     company: 'Brickhunter Ltd',
     location: 'South Yorkshire',
     dates: '2008 - 2010',
-    skills: ['PHP', 'Symfony', 'jQuery', 'JavaScript', 'HTML', 'CSS'],
     achievements: [
-      'Developed a nationwide marketplace website for matching facing brick stockists to customers. Key features: e-commerce, HGV delivery pricing and SEO. Back office application: basic CRM and order fulfilment.',
+      'Built a nationwide marketplace matching brick stockists to customers, covering e-commerce, HGV delivery pricing, SEO and a back-office order fulfilment application.',
     ],
   },
   {
-    title: 'Career Notes',
+    title: 'Earlier career',
     location: 'UK',
     achievements: [
       'Team Leader (2008)',
@@ -172,23 +203,31 @@ export const educations = [
 
 export const aboutMe: AboutMe[] = [
   {
-    headline: 'I want to work for a company...',
+    headline: 'How I lead',
     content:
-      'that has challenging problems to solve with Generative AI; has an appetite to keep up with the pace of innovation and embraces new technologies. AI is advancing so rapidly, there are so many new tools which are changing the way we work, if we are permitted to safely use them.  Promotes a healthy work-life balance and has a strong culture that I can connect with and be proud to work for.',
+      'I set clear direction, establish strong ownership and push decisions towards the people closest to the work. I favour short feedback loops, incremental delivery and learning from production over large, high-risk programmes. I remain technically engaged enough to challenge architecture and unblock teams, without making myself the bottleneck.',
   },
   {
-    headline: "I'm interested in roles...",
+    headline: 'Outside work',
     content:
-      'that are leadership roles with a strong focus on Generative AI. I\'ve always enjoyed my work in technology, and feel privileged to be working with the hottest technology.  I want to keep doing the same, leading teams at this exciting time for our industry.',
+      "Family comes first - supporting my kids at their sports, a home cooked meal and a good film. I'm a huge F1 fan, and I keep fit on my mountain bike in the forest. My wife and I share a love of travel, and we always have at least one big adventure planned.",
   },
   {
-    headline: 'Outside of work I...',
+    headline: 'Outside my primary role',
     content:
-      'prioritise spending time with my family - supporting my kids at their sports, enjoying a home cooked meal and a good movie; I\'m a huge F1 fan; for fitness I\'m in the forest on my mountain bike.  My wife and I have a shared love of travel - we always have at least one big adventure planned!',
+      'I continue to build and operate independent software projects. This keeps me close to modern development practices and gives me first-hand experience of product decisions, infrastructure, operating costs and turning an idea into a usable service.',
   },
-  {
-    headline: "I'm currently building...",
-    content:
-      'an agentic executive assistant using LangGraph, accessible via a ReactNative app.   I\'m always learning and building something when I can grab some spare time on the commute or in the evenings.',
-  },
+]
+
+export const technicalDepth: string[] = [
+  'Generative AI and LLM systems',
+  'Retrieval and agentic workflows',
+  'Python',
+  'TypeScript',
+  'Kotlin',
+  'API and event-driven architecture',
+  'Kubernetes and cloud platforms',
+  'Data platforms',
+  'Continuous delivery',
+  'Production observability',
 ]
