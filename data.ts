@@ -213,9 +213,9 @@ export const aboutMe: AboutMe[] = [
       "Family comes first - supporting my kids at their sports, a home cooked meal and a good film. I'm a huge F1 fan, and I keep fit on my mountain bike in the forest. My wife and I share a love of travel, and we always have at least one big adventure planned.",
   },
   {
-    headline: 'Outside my primary role',
+    headline: 'Independent projects',
     content:
-      'I continue to build and operate independent software projects. This keeps me close to modern development practices and gives me first-hand experience of product decisions, infrastructure, operating costs and turning an idea into a usable service.',
+      'Outside my primary role, I continue to build and operate independent software projects. This keeps me close to modern development practices and gives me first-hand experience of product decisions, infrastructure, operating costs and turning an idea into a usable service.',
   },
 ]
 
