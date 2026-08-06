@@ -136,12 +136,13 @@ export const experiences: Experience[] = [
     overview:
       'A multi-tenant AI phone-answering service for UK small businesses, designed, built, deployed and operated single-handed. In its first year I built a custom realtime voice bridge, ran it in production, concluded it was the wrong long-term architecture and replaced it with LiveKit Agents, then added a behavioural eval suite and a metered SaaS platform around it.',
     achievements: [
-      'Realtime voice agents on LiveKit Agents (Python 3.12), with the realtime model selected per call from tenant configuration - Google Gemini Live by default, OpenAI Realtime supported - plus turn detection, background noise cancellation and agent dispatch.',
+      'Realtime voice agents on LiveKit Agents, with the entire agent prompt generated dynamically from version-controlled configuration managed in the customer portal. Each assistant runs on either a realtime voice model - Google Gemini Live or OpenAI Realtime - or a traditional STT → LLM → TTS pipeline, with turn detection, background noise cancellation and agent dispatch.',
+      'Agent tools for knowledge base search and message taking, alongside urgency detection, spam detection and calendar integration.',
       'Inbound and outbound PSTN through LiveKit SIP, with warm and cold call transfer via the SIP transfer API, call lifecycle management, recording, transcripts and conversation history.',
       'Built a scenario-driven behavioural eval suite on the LiveKit Agents testing framework: YAML scenarios run against the real backend-rendered system prompt with production tool schemas and scriptable stubs, combining exact tool-call assertions with LLM-as-judge intent checks. Coverage spans escalation, boundaries, AI disclosure and prompt injection, and runs against either Gemini or OpenAI on every prompt change.',
-      'Retired the original realtime bridge - Twilio Media Streams, a ReactPHP/Ratchet WebSocket service and a separate audio-conversion worker - in favour of LiveKit Agents, removing most of the moving parts and the operational surface that came with them.',
+      'Retired the original realtime bridge - Twilio Media Streams, a ReactPHP/Ratchet WebSocket service and a separate audio-conversion worker running on Google Cloud Run - in favour of LiveKit Agents, removing most of the moving parts and the operational surface that came with them.',
       'Published mfullbrook/livekit-sdk, an open-source PHP SDK for LiveKit generated from the protobuf definitions through a custom Twirp plugin, because no first-party PHP SDK existed.',
-      'Built the SaaS around it in Laravel and PHP 8.4 with Filament, Inertia and React 19, Redis and Docker on AWS, covering multi-tenancy, plans, metered usage, invoicing and payment providers.',
+      'Built the SaaS around it in Laravel and PHP 8.4 with Filament, Inertia and React 19, Postgres and Redis, covering multi-tenancy, plans, metered usage, invoicing and payment providers.',
       'Ran customer discovery with UK small businesses and made the pricing, positioning and unit-economics decisions.',
     ],
   },
