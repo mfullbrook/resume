@@ -7,7 +7,7 @@ interface WorkExperienceProps {
 }
 
 export function WorkExperience({
-  experience: { title, company, overview, location, dates, skills, achievements },
+  experience: { title, company, link, overview, location, dates, skills, achievements },
 }: WorkExperienceProps) {
   return (
     <article className="experience-item print:break-inside-avoid">
@@ -23,7 +23,21 @@ export function WorkExperience({
       </div>
       <div className="experience-body">
         <h3>{title}</h3>
-        {company && <p className="experience-company">{company}</p>}
+        {company && (
+          <p className="experience-company">
+            {company}
+            {link && (
+              <a
+                className="experience-link"
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {link.label}
+              </a>
+            )}
+          </p>
+        )}
         {overview && <p className="experience-overview">{overview}</p>}
 
         {achievements && achievements.length > 0 && (

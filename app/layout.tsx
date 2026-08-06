@@ -20,7 +20,7 @@ const libreBaskerville = Libre_Baskerville({
 })
 
 const pageTitle = `${header.name} - ${header.shortTitle}`
-const pageDescription = `CV of ${header.name}, ${header.title} based in ${header.location}. 20+ years building software products, scaling engineering teams and delivering AI platforms in regulated environments.`
+const pageDescription = `CV of ${header.name}, ${header.title} based in ${header.location}. 20+ years building software, shipping production Generative AI in regulated environments and realtime voice AI on LiveKit.`
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://fullbrook.cv'),
@@ -30,10 +30,12 @@ export const metadata: Metadata = {
   keywords: [
     'cv',
     'curriculum vitae',
-    'technology leader',
-    'engineering leadership',
+    'principal engineer',
+    'forward deployed engineer',
     'generative ai',
-    'platform architecture',
+    'agentic systems',
+    'voice ai',
+    'livekit',
   ],
   robots: {
     index: true,

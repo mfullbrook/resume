@@ -6,14 +6,7 @@ const sections = [
   { id: 'profile', label: 'Impact' },
   { id: 'experience', label: 'Experience' },
   { id: 'technical-depth', label: 'Technical' },
-  { id: 'education', label: 'Education' },
-  { id: 'perspective', label: 'Perspective' },
-]
-
-const scrollSections = [
-  { id: 'profile', label: 'Impact' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'technical-depth', label: 'Technical' },
+  { id: 'open-source', label: 'Open source' },
   { id: 'education', label: 'Education' },
   { id: 'perspective', label: 'Perspective' },
 ]
@@ -48,7 +41,7 @@ export function StickyNavigation() {
       }
 
       let current = 'experience'
-      for (const section of scrollSections.slice(1)) {
+      for (const section of sections.slice(1)) {
         const element = document.getElementById(section.id)
         if (element && element.getBoundingClientRect().top <= 112) current = section.id
       }
