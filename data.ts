@@ -50,7 +50,7 @@ export const header: Header = {
   name: 'Mark Fullbrook',
   title: 'Principal Software Engineer',
   shortTitle: 'Principal Software Engineer',
-  avatarPath: '/images/profile-selfie-london2.jpeg',
+  avatarPath: '/images/profile-headshot.jpeg',
   summary:
     'Principal software engineer with over 20 years’ experience building and running software. At Citi, I lead the architecture and delivery of an AI platform for Markets, working directly with business teams and taking systems through production and governance reviews. Alongside my role at Citi, I built and operate RobinHQ, an AI phone-answering service for small businesses, including its agents, evaluations, telephony and billing. My work combines software design and implementation with understanding how customers work, supporting production systems and developing engineers.',
   emailBase64: 'bWFya0BmdWxsYnJvb2subWU=',
