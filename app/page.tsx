@@ -142,7 +142,7 @@ export default function Resume() {
         </section>
 
         <section id="open-source" className="skills-section full-width-section">
-          <SectionHeading eyebrow="04 / Public work">Open source and tooling</SectionHeading>
+          <SectionHeading eyebrow="04 / Projects">Personal projects and open source</SectionHeading>
           <div className="technical-groups open-source-groups">
             {openSource.map((project) => (
               <section className="technical-group open-source-item" key={project.name}>
@@ -185,7 +185,7 @@ export default function Resume() {
 
         <footer className="site-footer">
           <p>Mark Fullbrook</p>
-          <p>Realtime voice. Agentic systems. Production code.</p>
+          <p>Software engineering and applied AI</p>
           <a href="#top">Back to top ↑</a>
         </footer>
       </div>
