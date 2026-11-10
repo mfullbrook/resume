@@ -6,7 +6,7 @@ const sections = [
   { id: 'profile', label: 'Impact' },
   { id: 'experience', label: 'Experience' },
   { id: 'technical-depth', label: 'Technical' },
-  { id: 'open-source', label: 'Open source' },
+  { id: 'open-source', label: 'Projects' },
   { id: 'education', label: 'Education' },
   { id: 'perspective', label: 'Perspective' },
 ]
