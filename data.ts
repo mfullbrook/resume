@@ -52,7 +52,7 @@ export const header: Header = {
   shortTitle: 'Principal Software Engineer',
   avatarPath: '/images/profile-selfie-london2.jpeg',
   summary:
-    'Principal software engineer with over 20 years’ experience building and running software. At Citi, I lead the architecture and delivery of an AI platform for Markets, working directly with business teams and taking systems through production and governance reviews. Independently, I built and operate RobinHQ, an AI phone-answering service for small businesses, including its agents, evaluations, telephony and billing. My work combines software design and implementation with understanding how customers work, supporting production systems and developing engineers.',
+    'Principal software engineer with over 20 years’ experience building and running software. At Citi, I lead the architecture and delivery of an AI platform for Markets, working directly with business teams and taking systems through production and governance reviews. Alongside my role at Citi, I built and operate RobinHQ, an AI phone-answering service for small businesses, including its agents, evaluations, telephony and billing. My work combines software design and implementation with understanding how customers work, supporting production systems and developing engineers.',
   emailBase64: 'bWFya0BmdWxsYnJvb2subWU=',
   githubHandle: 'mfullbrook',
   linkedinHandle: 'markcfullbrook',
@@ -63,7 +63,7 @@ export const profile: Profile = [
   {
     heading: 'Shipped three Gen AI solutions to production at Citi',
     content:
-      'A document platform in daily use by 2,000 underwriters producing more than 600 documents a month, an extraction pipeline that cut client onboarding time by a third, and a conversational platform now rolling out to 1,500 users.',
+      'A document platform with 2,000 registered underwriters and 600 projects generated per month, an extraction pipeline that cut client onboarding time by a third, and a conversational platform now rolling out to 1,500 users.',
   },
   {
     heading: 'Built and operate RobinHQ',
@@ -78,7 +78,12 @@ export const profile: Profile = [
   {
     heading: 'Personal projects and open-source tools',
     content:
-      'Build productivity tools alongside my main role, including claude-rc, porthole, gaffer and pennywise.',
+      'Build productivity tools alongside my main role, including claude-rc, Gaffer, Porthole and Pennywise.',
+  },
+  {
+    heading: 'Mentoring engineers',
+    content:
+      'Coach junior developers on Gang of Four design patterns and speak at regular lunch-and-learn sessions sharing practical tips for GitHub Copilot and Devin.',
   },
 ]
 
@@ -120,7 +125,7 @@ export const experiences: Experience[] = [
     dates: 'Sep 2025 - Present',
     skills: ['Python', 'Laravel', 'React', 'AWS', 'Voice AI', 'Behavioural evaluations', 'LiveKit'],
     overview:
-      'An AI phone-answering service for UK small businesses. I designed, built and operate the service, from the voice agents and their evaluations to the customer portal, telephony and billing.',
+      'An independent project alongside my role at Citi: an AI phone-answering service for UK small businesses. I designed, built and operate the service, from the voice agents and their evaluations to the customer portal, telephony and billing.',
     achievements: [
       'Ran customer discovery with UK small businesses and made the product, pricing and operating-cost decisions.',
       'Built voice agents with knowledge base search, message taking, urgency and spam detection, and calendar integration. Agent prompts are generated from version-controlled configuration managed through the customer portal.',
@@ -134,6 +139,7 @@ export const experiences: Experience[] = [
     title: 'Technical Consultant',
     company: 'QuietStar',
     dates: 'Jun 2026 - Present',
+    overview: 'Independent consulting work alongside my role at Citi.',
     skills: ['Technical discovery', 'Systems integration', 'SharePoint', 'RAG & GraphRAG'],
     achievements: [
       'Worked with the consultancy to understand its project management, CRM and delivery workflows. The discovery work identified gaps in the data needed for AI automation, so the engagement began with the operational systems that would supply it.',
@@ -159,7 +165,7 @@ export const experiences: Experience[] = [
     achievements: [
       'Tested the existing platform against its scaling requirements to assess a proposed rewrite. Demonstrated that it could meet those requirements with approximately 30% lower projected infrastructure costs.',
       'Diagnosed a production stall affecting OCR, embedding and document generation by reproducing production conditions and tracing async handling issues across application code, the worker library and LlamaIndex. Reworked execution to use synchronous code with concurrency across threads.',
-      "Delivered one of Citi's earliest production Generative AI products, supporting the controlled drafting of structured documents using retrieval across structured and unstructured information. It is in daily use by 2,000 underwriters producing more than 600 documents a month.",
+      "Delivered one of Citi's earliest production Generative AI products, supporting the controlled drafting of structured documents using retrieval across structured and unstructured information. It has 2,000 registered underwriters, with 600 projects generated per month.",
       'Delivered a Generative AI data-extraction pipeline that reduced client onboarding time by 33%.',
       'Designed a reusable, multi-tenant platform capable of supporting multiple business areas, use cases and delivery teams.',
       'Established shared evaluation, configuration, audit and moderation capabilities for teams using the platform.',
@@ -248,18 +254,35 @@ export const educations = [
 
 export const openSource: OpenSourceProject[] = [
   {
-    name: 'livekit-sdk',
-    repo: 'mfullbrook/livekit-sdk',
-    href: 'https://github.com/mfullbrook/livekit-sdk',
-    description:
-      'An open-source PHP SDK for LiveKit, generated from the protobuf definitions through a custom Twirp plugin. Covers rooms, egress, ingress, agent dispatch, SIP, webhooks and access tokens. Written because no first-party PHP SDK existed.',
-  },
-  {
     name: 'claude-rc',
     repo: 'mfullbrook/claude-rc',
     href: 'https://github.com/mfullbrook/claude-rc',
     description:
-      "A daemon, CLI and web panel for launching and managing Claude Code remote-control sessions on always-on machines, driven from a phone over a tailnet. Rides Claude Code's own relay rather than re-inventing the channel. MIT licensed.",
+      'A tool for starting Claude Code sessions on always-on machines and controlling them from a phone through Claude’s own app. Uses the tailnet as the security boundary instead of SSH.',
+  },
+  {
+    name: 'Gaffer',
+    repo: 'mfullbrook/gaffer',
+    href: 'https://github.com/mfullbrook/gaffer',
+    description:
+      'Turns a Linear issue into a reviewed pull request while I’m away from the keyboard: Codex writes the tests, Claude writes the code, and I keep control of the merge. Built for developers using their own Claude and ChatGPT subscriptions.',
+  },
+  {
+    name: 'Porthole',
+    description:
+      'A personal tailnet index that finds the HTTP services running on my machine and lets me open them from whichever device I have to hand. A local tool with no public repository.',
+  },
+  {
+    name: 'Pennywise',
+    description:
+      'A personal tool for understanding my credit card bills. Uses deterministic calculations to reconcile a local ledger against each statement and flag spending that needs a look. A local tool with no public repository.',
+  },
+  {
+    name: 'livekit-sdk',
+    repo: 'mfullbrook/livekit-sdk',
+    href: 'https://github.com/mfullbrook/livekit-sdk',
+    description:
+      'An open-source PHP SDK for LiveKit, generated from protobuf definitions through a custom Twirp plugin. Covers rooms, egress, ingress, agent dispatch, SIP, webhooks and access tokens.',
   },
 ]
 
