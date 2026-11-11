@@ -1235,6 +1235,23 @@
     margin-bottom: 4pt;
   }
 
+  .print-web-callout {
+    margin-top: 12pt;
+    padding: 8pt 10pt;
+    border: 1px solid var(--line);
+    border-left: 2pt solid var(--signal);
+    color: var(--ink);
+    font-size: 9pt;
+    line-height: 1.4;
+    break-inside: avoid;
+  }
+
+  .print-web-callout a {
+    color: var(--signal-dark);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
   .experience-item {
     grid-template-columns: 25mm minmax(0, 1fr);
     gap: 5mm;

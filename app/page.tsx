@@ -108,6 +108,10 @@ export default function Resume() {
                 </li>
               ))}
             </ol>
+            <p className="print-web-callout hidden print:block">
+              For the best experience, view the online CV at{' '}
+              <a href="https://cv.fullbrook.me/">cv.fullbrook.me</a>.
+            </p>
           </aside>
 
           <div className="main-column">
