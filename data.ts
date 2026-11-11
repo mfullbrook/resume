@@ -73,7 +73,7 @@ export const profile: Profile = [
   {
     heading: 'Production troubleshooting and performance',
     content:
-      'Used performance testing to assess a proposed platform rewrite, showing the existing architecture could scale with approximately 30% lower projected infrastructure costs. Diagnosed a production worker stall across application code, the worker library and LlamaIndex.',
+      'Used performance testing to show the existing platform could scale without a rewrite. Diagnosed a production worker stall across application code, the worker library and LlamaIndex.',
   },
   {
     heading: 'Personal projects and open-source tools',
@@ -108,12 +108,12 @@ export const experiences: Experience[] = [
     overview:
       "Leading the architecture and engineering delivery of an enterprise Generative AI platform that brings governed data, tools and AI-assisted workflows into the daily work of Citi's Markets teams.",
     achievements: [
+      'Took a business prototype into production as an AI assistant for Markets. Started as the sole engineer, set the technical direction, and led a small team through build, model risk review and rollout.',
       'Write and review platform code, design services and investigate production issues.',
-      'Lead the technical direction and delivery of a multidisciplinary team building an agentic AI platform across multiple Markets businesses, now rolling out to 1,500 users.',
       'Designed a modular architecture combining a shared conversational platform with specialist agents, tools and services, allowing new business capabilities to be added incrementally.',
       'Work directly with Markets desks and business teams to understand their workflows and the problems they need to solve, then agree the scope and technical approach.',
       'Led the development of user experiences across Microsoft Teams and the web, supported by shared conversation, orchestration and integration services.',
-      'Shaped the data architecture for ingesting, standardising and retrieving Markets information.',
+      'Led the design of a data platform for hundreds of millions of records, with daily ingestion and the ability to rebuild data snapshots.',
       'Embedded entitlements, auditability, human oversight and production controls into the platform, working within model-risk, cybersecurity and regulatory governance requirements.',
     ],
   },
@@ -163,12 +163,13 @@ export const experiences: Experience[] = [
       'Kubernetes',
     ],
     achievements: [
-      'Tested the existing platform against its scaling requirements to assess a proposed rewrite. Demonstrated that it could meet those requirements with approximately 30% lower projected infrastructure costs.',
-      'Diagnosed a production stall affecting OCR, embedding and document generation by reproducing production conditions and tracing async handling issues across application code, the worker library and LlamaIndex. Reworked execution to use synchronous code with concurrency across threads.',
       "Delivered one of Citi's earliest production Generative AI products, supporting the controlled drafting of structured documents using retrieval across structured and unstructured information. It has 2,000 registered underwriters, with 600 projects generated per month.",
-      'Delivered a Generative AI data-extraction pipeline that reduced client onboarding time by 33%.',
-      'Designed a reusable, multi-tenant platform capable of supporting multiple business areas, use cases and delivery teams.',
+      'Turned a single use case into a reusable, multi-tenant platform. Built a versioned editor so business specialists could update drafting templates without waiting for a software release.',
+      'Designed and helped build an AI document processing service that reduced client onboarding time by 33%. Mentored an engineer who went on to become the project’s technical lead.',
+      'Named co-inventor on a granted US patent for generating structured documents with traceable sources (US 12,511,301 B1).',
       'Established shared evaluation, configuration, audit and moderation capabilities for teams using the platform.',
+      'Used performance testing to show the existing platform could meet its scaling requirements without a rewrite.',
+      'Diagnosed a production stall affecting OCR, embedding and document generation by reproducing production conditions and tracing async handling issues across application code, the worker library and LlamaIndex. Reworked execution to use synchronous code with concurrency across threads.',
       'Built the team that delivered it, growing a global multidisciplinary Generative AI group from one engineer to more than 20 within a year.',
     ],
   },
@@ -179,9 +180,8 @@ export const experiences: Experience[] = [
     dates: 'Apr 2021 - Dec 2023',
     skills: ['Kotlin', 'Camunda', 'gRPC', 'RabbitMQ', 'Kubernetes', 'TypeScript', 'React'],
     achievements: [
-      'Led a global team of 12 engineers to design and deliver an AI-enabled data remediation platform from inception through production.',
-      'Supported the remediation of thousands of legal agreements as part of a major regulatory programme.',
-      'Created a reusable workflow platform combining business process orchestration, event-driven services and controlled human decision points.',
+      'Led a global team of 12 engineers to deliver an AI-enabled remediation platform. It processed thousands of agreements and millions of pages, enabling the programme to meet its regulatory commitment.',
+      'Built a reusable workflow platform using BPMN in Camunda, event-driven services and gRPC, with a dedicated interface for maker-checker verification and sign-off.',
       'Ran discovery with operations, legal, product and senior technology stakeholders, turning complex regulatory requirements into practical software workflows.',
       'Established modern engineering practices across automated testing, containerised deployment, production support and incremental delivery.',
       'Promoted from VP to SVP in January 2023.',
