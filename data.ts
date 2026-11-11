@@ -15,6 +15,7 @@ export type Profile = { heading: string; content: string }[]
 export type Experience = {
   title: string
   company?: string
+  link?: { href: string; label: string }
   overview?: string
   location?: string
   dates?: string
@@ -38,13 +39,20 @@ export type TechnicalGroup = {
   skills: string[]
 }
 
+export type OpenSourceProject = {
+  name: string
+  repo?: string
+  href?: string
+  description: string
+}
+
 export const header: Header = {
   name: 'Mark Fullbrook',
-  title: 'Technology & AI Engineering Leader',
-  shortTitle: 'Technology & AI Leader',
-  avatarPath: '/images/profile-selfie-london2.jpeg',
+  title: 'Principal Software Engineer',
+  shortTitle: 'Principal Software Engineer',
+  avatarPath: '/images/profile-headshot.jpeg',
   summary:
-    "Hands-on technology leader with deep Generative AI expertise and more than 20 years’ experience building software products, modernising platforms and leading global engineering teams. At Citi, I built and scaled a global Generative AI engineering capability from one to more than 20 people and led multiple AI products from concept to production in a highly regulated environment. Previously, as a director of a 65-person manufacturing and export business, I led technology transformation alongside responsibilities spanning finance, operations, legal and people. A lifelong builder and relentless tinkerer, I combine strategic and commercial judgement with the technical depth to challenge assumptions and stay close to architecture and delivery.",
+    'Principal software engineer with over 20 years’ experience building and running software. At Citi, I lead the architecture and delivery of an AI platform for Markets, working directly with business teams and taking systems through production and governance reviews. Alongside my role at Citi, I built and operate RobinHQ, an AI phone-answering service for small businesses, including its agents, evaluations, telephony and billing. My work combines software design and implementation with understanding how customers work, supporting production systems and developing engineers.',
   emailBase64: 'bWFya0BmdWxsYnJvb2subWU=',
   githubHandle: 'mfullbrook',
   linkedinHandle: 'markcfullbrook',
@@ -53,29 +61,29 @@ export const header: Header = {
 
 export const profile: Profile = [
   {
-    heading: 'Built and scaled an AI engineering capability',
+    heading: 'Shipped three Gen AI solutions to production at Citi',
     content:
-      'Grew a global Generative AI engineering team from one to more than 20 people within a year, spanning engineering, product and delivery disciplines.',
+      'A document platform with 2,000 registered underwriters and 600 projects generated per month, an extraction pipeline that cut client onboarding time by a third, and a conversational platform now rolling out to 1,500 users.',
   },
   {
-    heading: 'Delivered regulated AI into production',
+    heading: 'Built and operate RobinHQ',
     content:
-      "Led one of Citi's earliest production Generative AI platforms, combining structured and unstructured information to support controlled, auditable business workflows.",
+      'An AI phone-answering service for UK small businesses. I built the agents, customer portal, telephony, behavioural evaluations and billing, and manage its operating costs.',
   },
   {
-    heading: 'Created reusable platforms',
+    heading: 'Production troubleshooting and performance',
     content:
-      'Designed multi-tenant systems and shared capabilities that could support multiple business areas without duplicating architecture and delivery effort.',
+      'Used performance testing to show the existing platform could scale without a rewrite. Diagnosed a production worker stall across application code, the worker library and LlamaIndex.',
   },
   {
-    heading: 'Led business-wide transformation',
+    heading: 'Personal projects and open-source tools',
     content:
-      'As a director of a 65-person manufacturing and export company, combined technology leadership with responsibility across finance, HR, legal and day-to-day operations.',
+      'Build productivity tools alongside my main role, including claude-rc, Gaffer, Porthole and Pennywise.',
   },
   {
-    heading: 'Remain technically hands-on',
+    heading: 'Mentoring engineers',
     content:
-      'Continue to work directly with architecture, code and delivery teams while setting direction, developing people and communicating technology decisions to senior stakeholders.',
+      'Coach junior developers on Gang of Four design patterns and speak at regular lunch-and-learn sessions sharing practical tips for GitHub Copilot and Devin.',
   },
 ]
 
@@ -88,23 +96,55 @@ export const experiences: Experience[] = [
     skills: [
       'Generative AI',
       'Agentic systems',
+      'Agent orchestration',
+      'Evals',
       'Python',
-      'React',
       'TypeScript',
-      'APIs',
+      'React',
       'Data platforms',
       'Kubernetes',
+      'Observability',
     ],
     overview:
       "Leading the architecture and engineering delivery of an enterprise Generative AI platform that brings governed data, tools and AI-assisted workflows into the daily work of Citi's Markets teams.",
     achievements: [
-      'Lead the technical direction and delivery of a multidisciplinary team building an agentic AI platform across multiple Markets businesses.',
+      'Took a business prototype into production as an AI assistant for Markets. Started as the sole engineer, set the technical direction, and led a small team through build, model risk review and rollout.',
+      'Write and review platform code, design services and investigate production issues.',
       'Designed a modular architecture combining a shared conversational platform with specialist agents, tools and services, allowing new business capabilities to be added incrementally.',
+      'Work directly with Markets desks and business teams to understand their workflows and the problems they need to solve, then agree the scope and technical approach.',
       'Led the development of user experiences across Microsoft Teams and the web, supported by shared conversation, orchestration and integration services.',
-      'Shaped the data architecture required to ingest, standardise and retrieve large volumes of Markets information reliably and efficiently.',
+      'Led the design of a data platform for hundreds of millions of records, with daily ingestion and the ability to rebuild data snapshots.',
       'Embedded entitlements, auditability, human oversight and production controls into the platform, working within model-risk, cybersecurity and regulatory governance requirements.',
-      'Work closely with Markets stakeholders, product leaders and senior technology management to translate business ambitions into a practical roadmap and engineering priorities.',
-      'Remain hands-on across architecture, implementation and problem-solving while providing leadership across engineering disciplines and organisational boundaries.',
+    ],
+  },
+  {
+    title: 'Founder & Principal Engineer',
+    company: 'RobinHQ',
+    link: { href: 'https://robinhq.co', label: 'robinhq.co' },
+    location: 'London',
+    dates: 'Sep 2025 - Present',
+    skills: ['Python', 'Laravel', 'React', 'AWS', 'Voice AI', 'Behavioural evaluations', 'LiveKit'],
+    overview:
+      'An independent project alongside my role at Citi: an AI phone-answering service for UK small businesses. I designed, built and operate the service, from the voice agents and their evaluations to the customer portal, telephony and billing.',
+    achievements: [
+      'Ran customer discovery with UK small businesses and made the product, pricing and operating-cost decisions.',
+      'Built voice agents with knowledge base search, message taking, urgency and spam detection, and calendar integration. Agent prompts are generated from version-controlled configuration managed through the customer portal.',
+      'Built a behavioural evaluation suite using production prompts and tool schemas. Scenarios combine tool-call assertions with LLM-as-judge checks for escalation, boundaries, AI disclosure and prompt injection, and run against Gemini or OpenAI on every prompt change.',
+      'Integrated inbound and outbound telephony, call transfers, recording and transcripts. Replaced a custom Twilio and WebSocket voice bridge with LiveKit Agents to simplify the architecture and reduce the number of services to operate.',
+      'Built the customer portal and billing in Laravel, React, Postgres and Redis, including multi-tenancy, plans, metered usage, invoicing and payment integrations.',
+      'Published an open-source PHP SDK for LiveKit, generated from protobuf definitions through a custom Twirp plugin.',
+    ],
+  },
+  {
+    title: 'Technical Consultant',
+    company: 'QuietStar',
+    dates: 'Jun 2026 - Present',
+    overview: 'Independent consulting work alongside my role at Citi.',
+    skills: ['Technical discovery', 'Systems integration', 'SharePoint', 'RAG & GraphRAG'],
+    achievements: [
+      'Worked with the consultancy to understand its project management, CRM and delivery workflows. The discovery work identified gaps in the data needed for AI automation, so the engagement began with the operational systems that would supply it.',
+      'Designed and built their delivery pipeline and project management board, tightly integrated with their SharePoint site for document management. Live and in daily use.',
+      'Now building the next phase, a RAG and GraphRAG knowledge base over historical projects and proposals, to generate quotes and proposal documentation faster.',
     ],
   },
   {
@@ -112,14 +152,25 @@ export const experiences: Experience[] = [
     company: 'Citi Innovation Labs',
     location: 'London',
     dates: 'Jan 2024 - Aug 2025',
-    skills: ['Generative AI', 'Retrieval (RAG)', 'Python', 'TypeScript', 'React', 'Kubernetes'],
+    skills: [
+      'Generative AI',
+      'Retrieval (RAG)',
+      'Evals',
+      'Python',
+      'LlamaIndex',
+      'TypeScript',
+      'React',
+      'Kubernetes',
+    ],
     achievements: [
-      'Built and led a global, multidisciplinary Generative AI team, scaling from one engineer to more than 20 within a year.',
-      "Delivered one of Citi's earliest production Generative AI products, supporting the controlled drafting of structured documents using retrieval across structured and unstructured information.",
-      'Designed a reusable, multi-tenant platform capable of supporting multiple business areas, use cases and delivery teams.',
-      'Established shared configuration, evaluation, audit and moderation capabilities to improve quality, governance and operational confidence.',
-      'Challenged a proposed platform rewrite through practical performance testing, demonstrating that the existing architecture could scale while reducing projected infrastructure costs by approximately 30%.',
-      'Partnered with business, product and governance stakeholders to move AI initiatives beyond prototypes and into supported production services.',
+      "Delivered one of Citi's earliest production Generative AI products, supporting the controlled drafting of structured documents using retrieval across structured and unstructured information. It has 2,000 registered underwriters, with 600 projects generated per month.",
+      'Turned a single use case into a reusable, multi-tenant platform. Built a versioned editor so business specialists could update drafting templates without waiting for a software release.',
+      'Designed and helped build an AI document processing service that reduced client onboarding time by 33%. Mentored an engineer who went on to become the project’s technical lead.',
+      'Named co-inventor on a granted US patent for generating structured documents with traceable sources (US 12,511,301 B1).',
+      'Established shared evaluation, configuration, audit and moderation capabilities for teams using the platform.',
+      'Used performance testing to show the existing platform could meet its scaling requirements without a rewrite.',
+      'Diagnosed a production stall affecting OCR, embedding and document generation by reproducing production conditions and tracing async handling issues across application code, the worker library and LlamaIndex. Reworked execution to use synchronous code with concurrency across threads.',
+      'Built the team that delivered it, growing a global multidisciplinary Generative AI group from one engineer to more than 20 within a year.',
     ],
   },
   {
@@ -129,10 +180,9 @@ export const experiences: Experience[] = [
     dates: 'Apr 2021 - Dec 2023',
     skills: ['Kotlin', 'Camunda', 'gRPC', 'RabbitMQ', 'Kubernetes', 'TypeScript', 'React'],
     achievements: [
-      'Led a global team of 12 engineers to design and deliver an AI-enabled data remediation platform from inception through production.',
-      'Supported the remediation of thousands of legal agreements as part of a major regulatory programme.',
-      'Created a reusable workflow platform combining business process orchestration, event-driven services and controlled human decision points.',
-      'Worked with operations, legal, product and senior technology stakeholders to turn complex regulatory requirements into practical software workflows.',
+      'Led a global team of 12 engineers to deliver an AI-enabled remediation platform. It processed thousands of agreements and millions of pages, enabling the programme to meet its regulatory commitment.',
+      'Built a reusable workflow platform using BPMN in Camunda, event-driven services and gRPC, with a dedicated interface for maker-checker verification and sign-off.',
+      'Ran discovery with operations, legal, product and senior technology stakeholders, turning complex regulatory requirements into practical software workflows.',
       'Established modern engineering practices across automated testing, containerised deployment, production support and incremental delivery.',
       'Promoted from VP to SVP in January 2023.',
     ],
@@ -144,14 +194,12 @@ export const experiences: Experience[] = [
     dates: 'Apr 2016 - Mar 2021',
     skills: ['Technology strategy', 'Operational change', 'TypeScript', 'PHP', 'AWS'],
     overview:
-      "Board director of a 65-person export packing and manufacturing business, with responsibilities spanning technology strategy, finance, legal, HR and operational improvement. Combined leadership accountability with hands-on transformation of the company's systems and working practices.",
+      'Board director of a 65-person export packing and manufacturing business, responsible for technology strategy alongside finance, legal, HR and operational improvement.',
     achievements: [
-      'Developed and executed a company-wide technology modernisation strategy, replacing fragmented manual processes with an integrated operational platform.',
+      'Replaced fragmented manual processes with an integrated operational platform across the business.',
       'Worked directly with finance, sales, factory, warehouse and logistics teams to redesign workflows and improve operational visibility.',
       'Introduced real-time shop-floor data capture, giving managers more accurate information about work in progress and operational performance.',
       'Built mobile and customer-facing capabilities that improved traceability, evidence capture and communication throughout the fulfilment process.',
-      'Managed organisational change around new systems, ensuring technology was adopted by operational teams rather than merely delivered to them.',
-      'Balanced investment, operational priorities and technical ambition within the commercial constraints of a privately owned business.',
     ],
   },
   {
@@ -163,8 +211,6 @@ export const experiences: Experience[] = [
     achievements: [
       "Established a product-led, iterative delivery model that became a reference point for agile delivery across Bloomberg's London R&D organisation.",
       'Managed the development of native Android and iOS apps by partnering with an external team for rapid delivery while building internal mobile development capability.',
-      'Fostered collaboration between my team and other Bloomberg industry verticals, leading to pilots and product advancements through shared innovation and technology.',
-      'Secured a net increase of five headcount through effective business planning and senior presentations, recruiting high-calibre, diverse engineers at both senior and trainee levels.',
     ],
   },
   {
@@ -206,69 +252,117 @@ export const educations = [
   },
 ]
 
+export const openSource: OpenSourceProject[] = [
+  {
+    name: 'claude-rc',
+    repo: 'mfullbrook/claude-rc',
+    href: 'https://github.com/mfullbrook/claude-rc',
+    description:
+      'A tool for starting Claude Code sessions on always-on machines and controlling them from a phone through Claude’s own app. Uses the tailnet as the security boundary instead of SSH.',
+  },
+  {
+    name: 'Gaffer',
+    repo: 'mfullbrook/gaffer',
+    href: 'https://github.com/mfullbrook/gaffer',
+    description:
+      'Turns a Linear issue into a reviewed pull request while I’m away from the keyboard: Codex writes the tests, Claude writes the code, and I keep control of the merge. Built for developers using their own Claude and ChatGPT subscriptions.',
+  },
+  {
+    name: 'Porthole',
+    repo: 'mfullbrook/porthole',
+    href: 'https://github.com/mfullbrook/porthole',
+    description:
+      'A personal tailnet index that finds the HTTP services running on my machine and lets me open them from whichever device I have to hand. A local tool with no public repository.',
+  },
+  {
+    name: 'Pennywise',
+    repo: 'mfullbrook/pennywise',
+    href: 'https://github.com/mfullbrook/pennywise',
+    description:
+      'A personal tool for understanding my credit card bills. Uses deterministic calculations to reconcile a local ledger against each statement and flag spending that needs a look. A local tool with no public repository.',
+  },
+  {
+    name: 'livekit-sdk',
+    repo: 'mfullbrook/livekit-sdk',
+    href: 'https://github.com/mfullbrook/livekit-sdk',
+    description:
+      'An open-source PHP SDK for LiveKit, generated from protobuf definitions through a custom Twirp plugin. Covers rooms, egress, ingress, agent dispatch, SIP, webhooks and access tokens.',
+  },
+]
+
 export const aboutMe: AboutMe[] = [
   {
-    headline: 'How I lead',
+    headline: 'How I work',
     content:
-      'I lead by making the business outcome and constraints clear, building multidisciplinary teams around the problem and giving capable people real ownership. I stay close enough to the work to challenge assumptions, unblock difficult problems and understand the consequences of our decisions, but I do not want every decision to pass through me. I set high standards for engineering and delivery while encouraging honest disagreement, shared learning and professional growth. I favour small releases, short feedback loops and evidence from users and production over long programmes built on untested assumptions.',
+      'I start by understanding how people do their work, where they lose time and what makes a task difficult. That has meant working with Markets desks, consultancy teams, factory staff and small-business owners. I use working software and small releases to get feedback, then improve the system as people use it.',
+  },
+  {
+    headline: "What I'm after",
+    content:
+      'I’d like to spend more of my time on the problems teams get stuck on. I enjoy working through the options with other engineers, getting into the code and seeing what actually works. The work I find most satisfying is when we solve a problem for one customer and build something the next team can use.',
   },
   {
     headline: 'Outside work',
     content:
-      "Family comes first - supporting my kids at their sports, a home cooked meal and a good film. I'm a huge F1 fan, and I keep fit on my Brompton into London and my mountain bike in the local forests. My wife and I share a love of travel, and we always have at least one big adventure planned.",
-  },
-  {
-    headline: 'Independent projects',
-    content:
-      'Outside my primary role, I continue to build and operate independent software projects. This keeps me close to modern development practices and gives me first-hand experience of product decisions, infrastructure, operating costs and turning an idea into a usable service.',
+      "Family comes first - supporting my kids at their sports, a home cooked meal and a good film. I'm a huge F1 fan, I keep fit on my Brompton into London and my mountain bike in the local forests, and my wife and I always have at least one big adventure planned.",
   },
 ]
 
 export const technicalDepth: TechnicalGroup[] = [
   {
-    title: 'AI and data',
+    title: 'Production AI systems',
     skills: [
-      'Generative AI',
-      'AI agents',
-      'Voice AI',
+      'Agentic architectures',
+      'Tool and function calling',
       'Retrieval-augmented generation',
-      'AI evaluation and governance',
-      'Data pipelines',
-      'Unstructured data extraction',
-      'Relational database design',
+      'Behavioural evals',
+      'LLM-as-judge',
+      'Prompt and context engineering',
+      'AI governance and model risk',
+      'Entitlements and auditability',
+      'Observability (OTel)',
     ],
   },
   {
-    title: 'Architecture and delivery',
+    title: 'Customer and delivery engineering',
     skills: [
-      'Platform architecture',
-      'Multi-tenant systems',
-      'Microservices',
-      'Majestic Monoliths',
-      'API design',
-      'Event-driven systems',
-      'Workflow automation',
-      'Kubernetes and OpenShift',
-      'AWS & GCP',
-      'Docker',
-      'Continuous delivery',
-      'Production observability',
+      'Technical discovery',
+      'Architecture workshops',
+      'Rapid prototyping',
+      'SDK and API integration',
+      'Production troubleshooting',
+      'Developer experience',
     ],
   },
   {
-    title: 'Languages and frameworks',
+    title: 'Platforms, languages and tooling',
     skills: [
       'Python',
-      'Kotlin',
-      'PHP',
-      'Laravel',
       'TypeScript',
-      'Next.js',
-      'React',
-      'gRPC',
-      'RabbitMQ',
-      'Camunda / BPMN',
-      'OTel'
+      'PHP and Laravel',
+      'Kotlin',
+      'React and Next.js',
+      'FastAPI',
+      'Platform architecture',
+      'Multi-tenant systems',
+      'API design',
+      'Kubernetes and Docker',
+      'AWS & GCP',
+      'MCP servers',
+    ],
+  },
+  {
+    title: 'Realtime voice and telephony',
+    skills: [
+      'LiveKit Agents',
+      'LiveKit SIP',
+      'Agent dispatch',
+      'PSTN telephony',
+      'Warm and cold transfer',
+      'Gemini Live',
+      'OpenAI Realtime',
+      'Turn detection and barge-in',
+      'Call recording and egress',
     ],
   },
 ]

@@ -5,7 +5,15 @@ import { MailTo } from '@/components/MailTo'
 import { StickyNavigation } from '@/components/StickyNavigation'
 import { TechnicalSkill } from '@/components/TechnicalSkill'
 import { WorkExperience } from '@/components/WorkExperience'
-import { aboutMe, educations, experiences, header, profile, technicalDepth } from '@/data'
+import {
+  aboutMe,
+  educations,
+  experiences,
+  header,
+  openSource,
+  profile,
+  technicalDepth,
+} from '@/data'
 
 function SectionHeading({ eyebrow, children }: { eyebrow: string; children: React.ReactNode }) {
   return (
@@ -23,13 +31,13 @@ export default function Resume() {
       <div className="resume-frame">
         <header className="hero">
           <div className="hero-topline" aria-hidden="true">
-            <span>Technology leadership</span>
+            <span>Production AI engineering</span>
             <span>London · 2026</span>
           </div>
 
           <div className="hero-grid">
             <div className="hero-copy">
-              <p className="hero-kicker">Technology &amp; AI Engineering Leader</p>
+              <p className="hero-kicker">{header.title}</p>
               <h1>
                 {header.name.split(' ')[0]}
                 <br />
@@ -100,6 +108,10 @@ export default function Resume() {
                 </li>
               ))}
             </ol>
+            <p className="print-web-callout hidden print:block">
+              For the best experience, view the online CV at{' '}
+              <a href="https://cv.fullbrook.me/">cv.fullbrook.me</a>.
+            </p>
           </aside>
 
           <div className="main-column">
@@ -133,15 +145,37 @@ export default function Resume() {
           </div>
         </section>
 
+        <section id="open-source" className="skills-section full-width-section">
+          <SectionHeading eyebrow="04 / Projects">Personal projects and open source</SectionHeading>
+          <div className="technical-groups open-source-groups">
+            {openSource.map((project) => (
+              <section className="technical-group open-source-item" key={project.name}>
+                <h3>
+                  {project.href ? (
+                    <a href={project.href} target="_blank" rel="noreferrer">
+                      {project.name}
+                      <ArrowUpRight aria-hidden="true" />
+                    </a>
+                  ) : (
+                    project.name
+                  )}
+                </h3>
+                {project.repo && <p className="open-source-repo">{project.repo}</p>}
+                <p className="open-source-description">{project.description}</p>
+              </section>
+            ))}
+          </div>
+        </section>
+
         <section id="education" className="education-section full-width-section">
-          <SectionHeading eyebrow="04 / Foundation">Education</SectionHeading>
+          <SectionHeading eyebrow="05 / Foundation">Education</SectionHeading>
           {educations.map((education) => (
             <Education key={education.qualification} education={education} />
           ))}
         </section>
 
         <section id="perspective" className="perspective-section">
-          <SectionHeading eyebrow="05 / Perspective">Beyond the job title</SectionHeading>
+          <SectionHeading eyebrow="06 / Perspective">Beyond the job title</SectionHeading>
           <div className="perspective-grid">
             {aboutMe.map((item, index) => (
               <article key={item.headline}>
@@ -155,7 +189,7 @@ export default function Resume() {
 
         <footer className="site-footer">
           <p>Mark Fullbrook</p>
-          <p>AI platforms. Delivery discipline. Teams that ship.</p>
+          <p>Software engineering and applied AI</p>
           <a href="#top">Back to top ↑</a>
         </footer>
       </div>

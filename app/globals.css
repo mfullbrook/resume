@@ -85,14 +85,7 @@
 @layer components {
   .resume-shell {
     min-height: 100vh;
-    background:
-      linear-gradient(
-        90deg,
-        transparent calc(50% - 1px),
-        color-mix(in srgb, var(--line) 25%, transparent) 50%,
-        transparent calc(50% + 1px)
-      ),
-      var(--paper);
+    background: var(--paper);
     color: var(--ink);
   }
 
@@ -222,6 +215,8 @@
   .hero-topline {
     display: flex;
     justify-content: space-between;
+    /* clear the fixed theme/print buttons in the top-right corner */
+    padding-right: 124px;
     padding-bottom: 18px;
     border-bottom: 1px solid var(--line);
     color: var(--ink-soft);
@@ -484,6 +479,22 @@
     text-transform: uppercase;
   }
 
+  .experience-link {
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    text-transform: none;
+  }
+
+  a.experience-link:hover {
+    color: var(--signal-dark);
+    text-decoration: underline;
+  }
+
   .experience-overview {
     margin-top: 22px;
     color: var(--ink);
@@ -590,6 +601,45 @@
     font-size: 0.75rem;
   }
 
+  .open-source-groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .open-source-item h3 {
+    margin-bottom: 10px;
+  }
+
+  .open-source-item h3 a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .open-source-item h3 a:hover {
+    text-decoration: underline;
+  }
+
+  .open-source-item h3 svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .open-source-repo {
+    margin-bottom: 14px;
+    color: var(--ink-soft);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .open-source-description {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    line-height: 1.68;
+  }
+
   .education-item {
     display: grid;
     grid-template-columns: 150px 1fr;
@@ -670,7 +720,8 @@
 
   .site-footer {
     display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: baseline;
     gap: 30px;
     padding: 24px 0 10px;
     border-top: 1px solid var(--ink);
@@ -683,6 +734,14 @@
 
   .site-footer p:first-child {
     color: var(--ink);
+  }
+
+  .site-footer p:nth-child(2) {
+    text-align: center;
+  }
+
+  .site-footer > :last-child {
+    text-align: right;
   }
 
   .site-footer a {
@@ -860,6 +919,10 @@
     padding: 18px 18px 34px;
   }
 
+  .hero-topline {
+    padding-right: 0;
+  }
+
   .hero-topline span:last-child {
     display: none;
   }
@@ -958,184 +1021,390 @@
   }
 }
 
+/* All document layout overrides stay inside print media. */
 @media print {
   @page {
     size: A4;
-    margin: 10mm;
+    margin: 14mm 13mm;
+
+    @bottom-left {
+      content: 'Mark Fullbrook';
+      font-family: Arial, sans-serif;
+      font-size: 8pt;
+      color: #59635d;
+    }
+
+    @bottom-right {
+      content: counter(page) ' / ' counter(pages);
+      font-family: Arial, sans-serif;
+      font-size: 8pt;
+      color: #59635d;
+    }
   }
 
   :root,
   .dark {
-    --paper: #ffffff;
-    --ink: #111714;
-    --ink-soft: #49544f;
-    --line: #aab1ad;
-    --signal: #008a51;
-    --signal-dark: #006a41;
+    --paper: #fff;
+    --ink: #171c19;
+    --ink-soft: #39423d;
+    --line: #bcc3be;
+    --signal: #007348;
+    --signal-dark: #00623e;
   }
 
   html,
   body,
   .resume-shell {
     background: #fff !important;
+    color: var(--ink);
+  }
+
+  html {
+    color-scheme: light !important;
+    scroll-behavior: auto;
   }
 
   body {
-    font-size: 8.5pt;
+    font-size: 10pt;
+    line-height: 1.4;
   }
 
-  .resume-frame {
-    width: 100%;
-    padding: 0;
-  }
-
-  .sticky-header {
-    display: none;
-  }
-
+  .resume-shell,
   .hero {
     min-height: 0;
   }
 
+  .resume-frame {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sticky-header,
+  .utility-button,
+  .hero-topline,
+  .portrait-index,
+  .experience-marker,
+  .contact-arrow,
+  .site-footer a {
+    display: none !important;
+  }
+
+  .hero {
+    display: block;
+    break-inside: avoid;
+  }
+
   .hero-grid {
-    grid-template-columns: 1fr 120px;
-    gap: 30px;
-    padding: 24px 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 30mm;
+    align-items: start;
+    gap: 7mm;
+    padding: 0 0 12pt;
+  }
+
+  .hero-kicker {
+    margin: 0 0 8pt;
+    font-size: 9pt;
+    letter-spacing: 0.08em;
   }
 
   .hero-copy h1 {
-    font-size: 50pt;
+    max-width: none;
+    font-size: 29pt;
+    letter-spacing: -0.5pt;
+    line-height: 1.15;
+  }
+
+  .hero-copy h1 br {
+    display: none;
+  }
+
+  .hero-copy h1 span {
+    margin-left: 7pt;
   }
 
   .hero-summary {
-    margin-top: 20px;
-    font-size: 8.5pt;
-    line-height: 1.4;
+    max-width: none;
+    margin-top: 12pt;
+    padding-left: 9pt;
+    border-left-width: 2pt;
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+
+  /* Reset the mobile portrait width and margins at A4 page widths. */
+  .portrait-wrap {
+    align-self: start;
+    width: 30mm;
+    max-width: 30mm;
+    margin: 0;
   }
 
   .portrait {
-    box-shadow: 7px 7px 0 var(--signal);
+    width: 30mm;
+    height: 37.5mm;
+    aspect-ratio: 4 / 5;
+    box-shadow: none;
+    background: none;
   }
 
-  .contact-link {
-    min-height: 32px;
-    padding: 6px;
-    font-size: 6.5pt;
+  .portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: none;
+  }
+
+  .contact-strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .contact-link,
+  .contact-link:nth-child(2) {
+    min-height: 0;
+    padding: 7pt 6pt;
+    gap: 5pt;
+    border-right: 1px solid var(--line);
+    border-bottom: 0;
+    font-size: 8pt;
+  }
+
+  .contact-link:last-child {
+    border-right: 0;
+  }
+
+  .contact-link svg {
+    width: 10pt;
+    height: 10pt;
   }
 
   .content-grid {
     display: block;
-    padding: 26px 0;
+    padding: 16pt 0 0;
   }
 
   .profile-column {
-    position: static;
-    margin-bottom: 26px;
+    margin-bottom: 16pt;
   }
 
   .section-heading {
-    margin-bottom: 14px;
+    margin-bottom: 9pt;
+    break-after: avoid;
+    break-inside: avoid;
   }
 
   .section-heading > span {
-    margin-bottom: 5px;
+    margin-bottom: 4pt;
+    font-size: 7.5pt;
+    letter-spacing: 0.1em;
   }
 
   .section-heading h2 {
-    font-size: 22pt;
+    font-size: 17pt;
+    letter-spacing: 0;
+    line-height: 1.2;
   }
 
   .impact-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 16pt;
   }
 
   .impact-list li {
-    padding: 9px 0;
+    grid-template-columns: 15pt minmax(0, 1fr);
+    gap: 6pt;
+    padding: 8pt 0;
+    break-inside: avoid;
+  }
+
+  .impact-number {
+    font-size: 7.5pt;
+    padding-top: 2pt;
   }
 
   .impact-list p,
-  .impact-list strong,
-  .achievement-list,
-  .experience-overview,
-  .perspective-grid p {
-    font-size: 7.5pt;
-    line-height: 1.35;
+  .impact-list strong {
+    font-size: 9pt;
+    line-height: 1.4;
+  }
+
+  .impact-list strong {
+    margin-bottom: 4pt;
+  }
+
+  .print-web-callout {
+    margin-top: 12pt;
+    padding: 8pt 10pt;
+    border: 1px solid var(--line);
+    border-left: 2pt solid var(--signal);
+    color: var(--ink);
+    font-size: 9pt;
+    line-height: 1.4;
+    break-inside: avoid;
+  }
+
+  .print-web-callout a {
+    color: var(--signal-dark);
+    font-weight: 700;
+    text-decoration: underline;
   }
 
   .experience-item {
-    grid-template-columns: 95px 1fr;
-    gap: 15px;
-    padding: 14px 0 18px 15px;
+    grid-template-columns: 25mm minmax(0, 1fr);
+    gap: 5mm;
+    padding: 11pt 0;
+    border-left: 0;
+    break-inside: avoid;
   }
 
-  .experience-marker {
-    top: 18px;
+  .experience-meta,
+  .education-item > p {
+    font-size: 8pt;
+    line-height: 1.4;
   }
 
-  .experience-body h3 {
-    font-size: 14pt;
+  .experience-meta p {
+    display: block;
+  }
+
+  .experience-location {
+    display: flex !important;
+    margin: 5pt 0 0;
+  }
+
+  .experience-body h3,
+  .education-item h3 {
+    max-width: none;
+    font-size: 12pt;
+    letter-spacing: 0;
+    line-height: 1.25;
+    break-after: avoid;
+  }
+
+  .experience-company,
+  .education-item div p {
+    margin-top: 4pt;
+    font-size: 8pt;
+    letter-spacing: 0.04em;
+    break-after: avoid;
+  }
+
+  .experience-overview,
+  .achievement-list,
+  .open-source-description,
+  .perspective-grid p {
+    font-size: 9.5pt;
+    line-height: 1.4;
+    orphans: 3;
+    widows: 3;
+  }
+
+  .experience-overview {
+    margin-top: 8pt;
+    font-weight: 400;
   }
 
   .achievement-list {
-    margin-top: 10px;
+    margin-top: 7pt;
   }
 
   .achievement-list > li {
-    margin-top: 5px;
+    margin-top: 4pt;
+    padding-left: 12pt;
+    break-inside: avoid;
   }
 
   .experience-skills,
   .skill-cloud {
-    margin-top: 10px;
-  }
-
-  .technical-groups {
-    display: block;
-  }
-
-  .technical-group {
-    padding-top: 10px;
-    margin-top: 12px;
-  }
-
-  .technical-group h3 {
-    margin-bottom: 8px;
-    font-size: 6pt;
+    margin-top: 7pt;
+    gap: 4pt;
   }
 
   .skill-tag,
   .skill-cloud .skill-tag {
     min-height: 0;
-    padding: 3px 5px;
-    font-size: 5.8pt;
+    padding: 2pt 4pt;
+    font-size: 7pt;
+    line-height: 1.3;
+    color: var(--ink-soft);
+    border-color: var(--line);
   }
 
   .skills-section,
-  .education-section {
-    padding-top: 26px;
-  }
-
+  .education-section,
   .perspective-section {
-    padding: 26px 0;
+    padding: 14pt 0;
   }
 
-  .perspective-grid article {
-    padding-top: 12px;
+  .technical-groups,
+  .perspective-grid {
+    display: block;
+  }
+
+  .technical-group {
+    margin-top: 8pt;
+    padding-top: 7pt;
+    break-inside: avoid;
+  }
+
+  .technical-group h3 {
+    margin-bottom: 5pt;
+    font-size: 8.5pt;
+    letter-spacing: 0.06em;
+    line-height: 1.3;
+    break-after: avoid;
+  }
+
+  .open-source-repo {
+    margin-bottom: 5pt;
+    font-size: 8pt;
+    letter-spacing: 0;
+  }
+
+  .education-item {
+    grid-template-columns: 25mm minmax(0, 1fr);
+    gap: 5mm;
+    padding: 10pt 0;
+    break-inside: avoid;
+  }
+
+  .perspective-grid article,
+  .perspective-grid article:first-child,
+  .perspective-grid article:last-child {
+    padding: 8pt 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    break-inside: avoid;
+  }
+
+  .perspective-grid article > span {
+    display: none;
   }
 
   .perspective-grid h3 {
-    margin-top: 10px;
-    font-size: 14pt;
+    margin-top: 0;
+    font-size: 11pt;
+    line-height: 1.3;
+    break-after: avoid;
   }
 
   .perspective-grid p {
-    margin-top: 8px;
+    margin-top: 5pt;
   }
 
   .site-footer {
-    padding-top: 8px;
-    font-size: 6pt;
+    display: flex;
+    justify-content: space-between;
+    padding: 8pt 0 0;
+    font-size: 7pt;
+    letter-spacing: 0.03em;
+    break-inside: avoid;
+  }
+
+  .site-footer p:nth-child(2) {
+    display: block;
   }
 }
