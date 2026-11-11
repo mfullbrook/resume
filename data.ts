@@ -269,11 +269,15 @@ export const openSource: OpenSourceProject[] = [
   },
   {
     name: 'Porthole',
+    repo: 'mfullbrook/porthole',
+    href: 'https://github.com/mfullbrook/porthole',
     description:
       'A personal tailnet index that finds the HTTP services running on my machine and lets me open them from whichever device I have to hand. A local tool with no public repository.',
   },
   {
     name: 'Pennywise',
+    repo: 'mfullbrook/pennywise',
+    href: 'https://github.com/mfullbrook/pennywise',
     description:
       'A personal tool for understanding my credit card bills. Uses deterministic calculations to reconcile a local ledger against each statement and flag spending that needs a look. A local tool with no public repository.',
   },
