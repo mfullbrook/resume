@@ -295,7 +295,7 @@ export const aboutMe: AboutMe[] = [
   {
     headline: "What I'm after",
     content:
-      'I want to keep writing code and stay close to the people using what we build. I’m looking for a role where I can take AI projects from the first customer conversation into production, stay involved after launch, and make mentoring a regular part of the job.',
+      'I’d like to spend more of my time on the problems teams get stuck on. I enjoy working through the options with other engineers, getting into the code and seeing what actually works. The work I find most satisfying is when we solve a problem for one customer and build something the next team can use.',
   },
   {
     headline: 'Outside work',
